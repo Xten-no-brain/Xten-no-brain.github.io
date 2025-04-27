@@ -1,6 +1,3 @@
 http://example.com/2025/04/27/Redis/
 http://example.com/2025/04/27/MySQL/
-http://example.com/2025/04/27/Hello/
-http://example.com/2025/04/26/FirstText/
-http://example.com/2025/04/26/hello-world/
 http://example.com/
