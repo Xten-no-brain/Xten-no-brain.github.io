@@ -105,5 +105,5 @@ theme: butterfly
 deploy:
   type: 'git'
   repo: git@github.com:Xten-no-brain/Xten-no-brain.github.io.git  # SSH
-  branch: main  # 或 gh-pages（根据仓库设置）
+  branch: master  # 根据仓库设置
 

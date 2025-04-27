@@ -4,7 +4,7 @@
 
 nav:
   # 导航栏 Logo 图片
-  logo:
+  logo: 
   # 是否显示标题
   display_title: true
   # 是否固定导航栏
@@ -55,7 +55,7 @@ favicon: /img/favicon.png
 # 頭像設置
 avatar:
   # 頭像圖片鏈接
-  img: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
+  img: 
   # 是否啟用頭像效果
   effect: false
 
@@ -200,25 +200,25 @@ index_post_content:
   length: 500
 
 # --------------------------------------
-# 文章設置
+# 文章设置
 # --------------------------------------
 
 toc:
-  # 是否在文章中顯示目錄
+  # 是否在文章中显示目录
   post: true
-  # 是否在頁面中顯示目錄
-  page: false
-  # 是否顯示目錄編號
+  # 是否在頁面中显示目录
+  page: true
+  # 是否显示目录编号
   number: true
-  # 是否默認展開目錄
+  # 是否默认展开目录
   expand: false
-  # 是否使用簡潔風格（僅適用於文章）
+  # 是否使用简洁风格（仅适用于文章）
   style_simple: false
-  # 是否顯示滾動百分比
+  # 是否显示滚动百分比
   scroll_percent: true
 
 post_copyright:
-  # 是否啟用版權聲明
+  # 是否启用版权声明
   enable: true
   # 是否進行文章 URL 解碼
   decode: false
