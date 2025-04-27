@@ -60,8 +60,16 @@
     <link href="http://example.com/2025/04/27/MySQL/"/>
     <id>http://example.com/2025/04/27/MySQL/</id>
     <published>2025-04-27T13:59:37.000Z</published>
-    <updated>2025-04-27T13:59:37.998Z</updated>
+    <updated>2025-04-27T16:29:50.643Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p><p><strong>Server 层</strong>包含连接器、查询缓存、解析器、预处理器、优化器、执行器</p><p><strong>存储引擎层</strong>包含 InnoDB、MyISAM 等存储引擎以及数据</p><h2 id="SQL执行流程"><a href="#SQL执行流程" class="headerlink" title="SQL执行流程"></a>SQL执行流程</h2><p>从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以<strong>Key-Value</strong>形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Value，即查询结果。若没有，则</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;架构&quot;&gt;&lt;a href=&quot;#架构&quot; class=&quot;headerlink&quot; title=&quot;架构&quot;&gt;&lt;/a&gt;架构&lt;/h1&gt;&lt;p&gt;MySQL分为 &lt;strong&gt;Server 层&lt;/strong&gt;和&lt;strong&gt;存储引擎层&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;stron</summary>
+      
     
     
     
