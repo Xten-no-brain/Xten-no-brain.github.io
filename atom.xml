@@ -6,7 +6,7 @@
   <link href="https://xten-no-brain.github.io/atom.xml" rel="self"/>
   
   <link href="https://xten-no-brain.github.io/"/>
-  <updated>2025-04-27T14:49:19.242Z</updated>
+  <updated>2025-04-28T07:52:40.173Z</updated>
   <id>https://xten-no-brain.github.io/</id>
   
   <author>
@@ -21,10 +21,12 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</id>
     <published>2025-04-27T14:49:19.000Z</published>
-    <updated>2025-04-27T14:49:19.242Z</updated>
+    <updated>2025-04-28T07:52:40.173Z</updated>
     
     
     
+    
+    <category term="网络" scheme="https://xten-no-brain.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
   </entry>
@@ -34,10 +36,12 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</id>
     <published>2025-04-27T14:49:12.000Z</published>
-    <updated>2025-04-27T14:49:12.584Z</updated>
+    <updated>2025-04-28T07:52:34.283Z</updated>
     
     
     
+    
+    <category term="操作系统" scheme="https://xten-no-brain.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
   </entry>
@@ -47,10 +51,12 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/Redis/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/Redis/</id>
     <published>2025-04-27T13:59:44.000Z</published>
-    <updated>2025-04-27T13:59:44.766Z</updated>
+    <updated>2025-04-28T07:52:55.029Z</updated>
     
     
     
+    
+    <category term="Redis" scheme="https://xten-no-brain.github.io/categories/Redis/"/>
     
     
   </entry>
@@ -60,7 +66,7 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/MySQL/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/MySQL/</id>
     <published>2025-04-27T13:59:37.000Z</published>
-    <updated>2025-04-27T16:29:50.643Z</updated>
+    <updated>2025-04-28T07:52:49.813Z</updated>
     
     <content type="html"><![CDATA[<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p><p><strong>Server 层</strong>包含连接器、查询缓存、解析器、预处理器、优化器、执行器</p><p><strong>存储引擎层</strong>包含 InnoDB、MyISAM 等存储引擎以及数据</p><h2 id="SQL执行流程"><a href="#SQL执行流程" class="headerlink" title="SQL执行流程"></a>SQL执行流程</h2><p>从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以<strong>Key-Value</strong>形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Value，即查询结果。若没有，则</p>]]></content>
     
@@ -72,6 +78,8 @@
       
     
     
+    
+    <category term="MySQL" scheme="https://xten-no-brain.github.io/categories/MySQL/"/>
     
     
   </entry>
