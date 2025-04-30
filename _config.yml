@@ -5,15 +5,18 @@
 # Site
 title: 'X'
 subtitle: ''
-description: '学习记录'
-keywords: ['计算机基础', '中间件']
+description: 
+keywords: 
 author: 'Xten'
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
+# 跳过渲染CNAME文件，防止被清理
+skip_render: CNAME
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://xten-no-brain.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -28,7 +31,6 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -105,5 +107,5 @@ theme: butterfly
 deploy:
   type: 'git'
   repo: git@github.com:Xten-no-brain/Xten-no-brain.github.io.git  # SSH
-  branch: master  # 根据仓库设置
+  branch: main  # 根据仓库设置
 
