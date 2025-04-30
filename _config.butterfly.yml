@@ -12,9 +12,12 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  列表||fas fa-list:
-    音乐: /music/ || fas fa-music
-    电影: /movies/ || fas fa-video
+  文章分类: 
+    MySQL: /categories/MySQL/ || fas fa-database
+    Redis: /categories/Redis/ || fas fa-bolt
+    网络: /categories/网络/ || fas fa-network-wired
+    操作系统: /categories/操作系统/ || fas fa-desktop
+
 
 # --------------------------------------
 # 代码块设置
@@ -27,43 +30,73 @@ code_blocks:
   macStyle: false
   # 代码块高度限制（单位: px）
   height_limit: false
-  # 是否自動換行
+  # 是否自动换行
   word_wrap: false
 
-  # 工具欄
-  # 是否顯示複製按鈕
+  # 工具栏
+  # 是否显示复制按钮
   copy: true
-  # 是否顯示語言標籤
+  # 是否显示语言标签
   language: true
-  # true: 收縮代碼塊 | false: 展開代碼塊 | none: 展開代碼塊並隱藏按鈕
+  # true: 收缩代码块 | false: 展开代码块 | none: 展开代码块并隐藏按钮
   shrink: false
-  # 是否顯示全屏顯示代碼塊按鈕
+  # 是否显示全屏显示代码块按钮
   fullpage: false
 
 # 社交媒体链接
 # 格式:
-#   icon: 鏈接 || 描述 || 顏色
+#   icon: 链接 || 描述 || 顏色
 social:
+  fab fa-github: https://github.com/Xten-no-brain || GitHub || #24292e
+  fas fa-envelope: /contact/ || 邮箱 || #4285f4
+
+# 添加样式覆盖
+inject:
+  head:
+    - |
+      <style>
+        .card-info-social-icons a[title="邮箱"] i {
+          color: #4285f4 !important;
+          transition: all 0.3s !important;
+        }
+        .card-info-social-icons a[title="邮箱"]:hover i {
+          transform: scale(1.2);
+        }
+      </style>
 
 # --------------------------------------
-# 圖片設置
+# 图片设置
 # --------------------------------------
 
 # 網站的 favicon 圖標
 favicon: /img/favicon.png
 
-# 頭像設置
+# 头像设置
 avatar:
-  # 頭像圖片鏈接
-  img: 
-  # 是否啟用頭像效果
-  effect: false
+  # 头像图片链接
+  img: /img/Avatar.jpg
+  # 开启后头像一直转圈
+  effect: true
+  head:
+    - |
+      <style>
+        /* 暴力禁用所有动画 */
+        .avatar, .avatar-img, #avatar { 
+          animation: none !important; 
+          -webkit-animation: none !important;
+          transform: none !important;
+        }
+        /* 核武器：直接删除动画定义 */
+        @keyframes spin { 
+          to { transform: none; } 
+        }
+      </style>
 
-# 禁用所有橫幅圖片
+# 禁用所有顶部图片
 disable_top_img: false
 
-# 如果頁面未設置橫幅，則顯示默認的橫幅圖片
-default_top_img:
+# 如果页面未設置橫幅，則显示默认的橫幅图片
+default_top_img: # /img/Top.jpg
 
 # 主頁的橫幅圖片
 index_img:
@@ -87,8 +120,8 @@ category_img:
 #  - 分類名: 圖片鏈接
 category_per_img:
 
-# 頁腳的背景圖片
-footer_img: false
+# 页脚的背景图片
+footer_img: true
 
 # 網站背景
 # 可以設置為顏色或圖片
@@ -148,13 +181,13 @@ post_meta:
     date_format: date
     # 是否顯示分類
     categories: true
-    # 是否顯示標籤
+    # 是否顯示標籤在·
     tags: true
     # 是否顯示文字標籤
     label: true
 
 # --------------------------------------
-# 首頁設置
+# 首页设置
 # --------------------------------------
 
 # 首頁頭圖的設置
@@ -162,17 +195,19 @@ post_meta:
 # 站點信息的位置，例如: 300px/300em/300rem/10%
 index_site_info_top:
 # 頭圖的高度，例如: 300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 400px
 
-# 首頁的副標題設置
-subtitle: 'Dream'
-  # 是否啟用副標題
-enable: true
-  # 是否啟用打字機效果
-effect: true
+# 首页标题设置
+title: 'X'
+# 副标题设置
+subtitle: 
+  # 是否启用副标题
+  enable: true
+  # 是否启用打字机效果
+  effect: true
   # 自定義 typed.js
   # https://github.com/mattboldt/typed.js/#customization
-typed_option:
+  typed_option:
   # 來源 - 調用第三方服務 API（僅限中文）
   # 它將首先顯示來源，然後顯示副標題內容
   # 選擇: false/1/2/3
@@ -180,23 +215,24 @@ typed_option:
   # 1 - hitokoto.cn
   # 2 - yijuzhan.com
   # 3 - jinrishici.com
-  source: false
+  source: true
   # 如果關閉打字機效果，副標題將僅顯示 sub 的第一行內容
   sub:
+    - 悟已往之不谏，知来者之可追
 
 # 首頁文章佈局
 # 1: 行佈局
 # 2: 列布局
 index_layout: 1
 
-# 在首頁顯示文章簡介
+# 在首页显示文章简介
 # 1: 描述
-# 2: 兩者（如果存在描述，將顯示描述，否則顯示自動摘要）
-# 3: 自動摘要（默認）
-# false: 不顯示文章簡介
+# 2: 两者（如果存在描述，将显示描述，否则显示自动摘要）
+# 3: 自动摘要（默认）
+# false: 不显示文章简介
 index_post_content:
-  method: 3
-  # 如果設置 method 為 2 或 3，需要配置長度
+  method: false
+  # 如果设置 method 为 2 或 3，需要配置长度
   length: 500
 
 # --------------------------------------
@@ -215,25 +251,25 @@ toc:
   # 是否使用简洁风格（仅适用于文章）
   style_simple: false
   # 是否显示滚动百分比
-  scroll_percent: true
+  scroll_percent: false
 
 post_copyright:
   # 是否启用版权声明
-  enable: true
-  # 是否進行文章 URL 解碼
+  enable: false
+  # 是否进行文章 URL 解码
   decode: false
-  # 作者鏈接
+  # 作者链接
   author_href:
-  # 許可證類型
+  # 许可证类型
   license: CC BY-NC-SA 4.0
-  # 許可證鏈接
+  # 许可证链接
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-# 贊助/打賞
+# 赞助/打赏
 reward:
-  # 是否啟用打賞
+  # 是否啟用打赏
   enable: false
-  # 打賞案例文本
+  # 打赏案例文本
   text:
   QR_code:
     # - img: /img/wechat.jpg
@@ -241,16 +277,16 @@ reward:
     #   text: 微信
     # - img: /img/alipay.jpg
     #   link:
-    #   text: 支付寶
+    #   text: 支付宝
 
-# 文章編輯
-# 輕鬆在線瀏覽和編輯博客源代碼
+# 文章编辑
+# 轻松在线浏览和编辑博客源代码
 post_edit:
-  # 是否啟用在線編輯
+  # 是否啟用在线编辑
   enable: false
   # url: https://github.com/用户名/倉庫名/edit/分支名/子目錄名/
   # 例如: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
+  url: https://xten-no-brain.github.io
 
 # 相關文章
 related_post:
@@ -314,56 +350,56 @@ aside:
     archive: true
     # 標籤頁面是否顯示側邊欄
     tag: true
-    # 分類頁面是否顯示側邊欄
+    # 分类页面是否显示侧边栏
     category: true
   card_author:
-    # 是否顯示作者信息卡片
+    # 是否显示作者信息卡片
     enable: true
     # 作者描述
     description:
     button:
-      # 是否顯示按鈕
-      enable: true
-      # 按鈕圖標
+      # 是否显示按鈕
+      enable: false
+      # 按钮图标
       icon: fab fa-github
-      # 按鈕文本
+      # 按钮文本
       text: Follow Me
-      # 按鈕鏈接
+      # 按钮链接
       link: https://github.com/Xten-no-brain
   card_announcement:
-    # 是否顯示公告卡片
-    enable: true
+    # 是否显示公告卡片
+    enable: false
     # 公告內容
-    content: 学习记录
+    content: 学习内容总结与记录
   card_recent_post:
-    # 是否顯示最近文章卡片
+    # 是否显示最近文章卡片
     enable: true
-    # 顯示文章數量，0 表示顯示所有
-    limit: 5
+    # 显示文章数量，0 表示显示所有
+    limit: 1
     # 排序方式：date / updated
-    sort: date
+    sort: updated
     sort_order:
   card_newest_comments:
-    # 是否顯示最新評論卡片
+    # 是否显示最新评论卡片
     enable: false
     sort_order:
-    # 顯示評論數量
+    # 显示评论数量
     limit: 6
-    # 單位：分鐘，保存數據到 localStorage
+    # 单位：分钟，保存数据到 localStorage
     storage: 10
-    # 是否顯示頭像
+    # 是否显示头像
     avatar: true
   card_categories:
-    # 是否顯示分類卡片
-    enable: true
-    # 顯示分類數量，0 表示顯示所有
+    # 是否显示分类卡片
+    enable: false
+    # 显示分类数量，0 表示显示所有
     limit: 8
-    # 選擇：none / true / false
+    # 选择：none / true / false
     expand: none
     sort_order:
   card_tags:
-    # 是否顯示標籤卡片
-    enable: true
+    # 是否显示标签卡片
+    enable: false
     # 顯示標籤數量，0 表示顯示所有
     limit: 40
     # 是否啟用顏色
@@ -374,8 +410,8 @@ aside:
     order: 1
     sort_order:
   card_archives:
-    # 是否顯示歸檔卡片
-    enable: true
+    # 是否显示归档卡片
+    enable: false
     # 歸檔類型：monthly / yearly
     type: monthly
     # 日期格式，例如：YYYY年MM月
@@ -414,40 +450,40 @@ aside:
 # 右下角按鈕與底部的距離（默認單位：px）
 rightside_bottom:
 
-# 簡繁轉換設置
+# 简繁转换设置
 translate:
-  # 是否啟用簡繁轉換
+  # 是否启用简繁转换
   enable: false
-  # 按鈕文本
+  # 按钮文本
   default: 繁
-  # 網站語言（1 - 繁體中文 / 2 - 簡體中文）
+  # 网站语言（1 - 繁体中文 / 2 - 简体中文）
   defaultEncoding: 2
-  # 轉換延遲
+  # 转换延迟
   translateDelay: 0
-  # 按鈕在簡體中文時的文本
+  # 按钮在简体中文时的文本
   msgToTraditionalChinese: '繁'
-  # 按鈕在繁體中文時的文本
-  msgToSimplifiedChinese: '簡'
+  # 按钮在繁体中文时的文本
+  msgToSimplifiedChinese: '简'
 
-# 閲讀模式
+# 阅读模式
 readmode: true
 
 # 暗黑模式設置
 darkmode:
-  # 是否啟用暗黑模式
+  # 是否启用暗黑模式
   enable: true
-  # 切換暗黑/明亮模式的按鈕
+  # 切换暗黑/明亮模式的按鈕
   button: true
-  # 是否自動切換暗黑/明亮模式
-  # autoChangeMode: 1  跟隨系統設置，如果系統不支持暗黑模式，則在晚上 6 點到早上 6 點之間切換暗黑模式
-  # autoChangeMode: 2  在晚上 6 點到早上 6 點之間切換暗黑模式
-  # autoChangeMode: false  不自動切換
+  # 是否自动切换暗黑/明亮模式
+  # autoChangeMode: 1  跟随系统设置，如果系統不支持暗黑模式，则在晚上 6 点到早上 6 点之间切换黑暗模式
+  # autoChangeMode: 2  在晚上 6 点到早上 6 点之间切换暗黑模式
+  # autoChangeMode: false  不自动切换
   autoChangeMode: false
-  # 設置明亮模式時間，值在 0 到 24 之間。如果未設置，默認值為 6 和 18
+  # 设置明亮模式时间，值在 0 到 24 之间。如果未设置，默认值为 6 和 18
   start:
   end:
 
-# 在返回頂部按鈕中顯示滾動百分比
+# 在返回顶部按钮中显示滚动百分比
 rightside_scroll_percent: false
 
 # 不要修改以下設置，除非你知道它們的工作原理
@@ -589,87 +625,34 @@ comments:
   # 最多兩個評論系統，第一個將作為默認顯示
   # 如果不需要評論功能，保持為空
   # 選擇：Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  # 兩個評論系統的格式：Disqus,Waline
-  use:
-  # 按鈕旁邊顯示評論系統名稱
+  # 两个评论系统的格式：Disqus,Waline
+  use: waline
+  # 按钮旁边显示评论系统名称
   text: true
-  # 懶加載：評論系統將在評論元素進入瀏覽器視口時加載
-  # 如果設置為 true，評論計數將無效
+  # 懒加载：评论系统将在评论元素进入浏览器视口时加载
+  # 如果设置为 true，评论计数将无效
   lazyload: false
-  # 在文章頂部圖片中顯示評論計數
+  # 在文章顶部图片中显示评论总数
   count: false
-  # 在主頁顯示評論計數
+  # 在主頁显示评论计数
   card_post_count: false
 
-# Disqus 評論插件配置
-# 官方文檔：https://disqus.com/
-disqus:
-  # Disqus 的 shortname
-  shortname:
-  # 最新評論小部件的 API 密鑰
-  apikey:
-
-# 使用 Disqus API 渲染評論的替代方案
-# 官方文檔：https://github.com/SukkaW/DisqusJS
-disqusjs:
-  # Disqus 的 shortname
-  shortname:
-  # API 密鑰
-  apikey:
-  # 其他可選配置
-  option:
-
-# Livere 評論插件配置
-# 官方文檔：https://www.livere.com/
-livere:
-  # Livere 的用户 ID
-  uid:
-
-# Gitalk 評論插件配置
-# 官方文檔：https://github.com/gitalk/gitalk
-gitalk:
-  # GitHub 應用的客户端 ID
-  client_id:
-  # GitHub 應用的客户端密鑰
-  client_secret:
-  # 存儲評論的倉庫名稱
-  repo:
-  # 倉庫擁有者的用户名
-  owner:
-  # 管理員用户名列表
-  admin:
-  # 其他可選配置
-  option:
-
-# Valine 評論插件配置
-# 官方文檔：https://valine.js.org
-valine:
-  # LeanCloud 應用的 appId
-  appId:
-  # LeanCloud 應用的 appKey
-  appKey:
-  # 評論者頭像樣式
-  avatar: monsterid
-  # 該配置適用於國內自定義域名用户，海外版本將自動檢測（無需手動填寫）
-  serverURLs:
-  # 評論框背景圖片
-  bg:
-  # 使用 Valine 的訪客計數作為頁面的訪客量
-  visitor: false
-  # 其他可選配置
-  option:
-
-# Waline 評論插件配置，一個簡單的評論系統，基於 Valine 開發，支持後端
-# 官方文檔：https://waline.js.org/
+# Waline 评论插件配置，一个简单的评论系统，基于 Valine 开发，支持后端
+# 官方文档：https://waline.js.org/
 waline:
-  # 服務器 URL
-  serverURL:
-  # 評論框背景圖片
-  bg:
-  # 使用 Waline 的訪客計數作為頁面的訪客量
-  pageview: false
-  # 其他可選配置
-  option:
+  serverURL: https://xten-no-brain-github-q70i16qq8-xten-no-brains-projects.vercel.app/  # 替换为你的 Waline 服务端真实地址
+  lang: zh-CN                                 # 语言
+  emoji: 
+    - https://unpkg.com/@waline/emojis@latest/weibo  # 微博表情包
+    - https://unpkg.com/@waline/emojis@latest/alus    # 阿鲁表情包（可选）
+  requiredMeta: [nick]                        # 必填字段（nick=昵称，mail=邮箱）
+  meta: [nick] # 隐藏邮箱、网址输入框
+  login: disabled                              # 启用登录功能（需服务端配置第三方登录）
+  commentCount: true                          # 显示评论数
+  pageSize: 10                                # 每页评论数（可选）
+  avatar: "mp"                                # 头像风格（可选，如 'mp'/'retro'）
+  visitor: true                               # 启用文章访问量统计（可选）
+  highlight: true                             # 代码高亮（需额外引入 CSS）
 
 # Utterances 評論插件配置
 # 官方文檔：https://utteranc.es/
@@ -1189,10 +1172,10 @@ css_prefix: true
 
 # Inject
 # 插入代碼到 head（在 '</head>' 標籤之前）和底部（在 '</body>' 標籤之前）
-inject:
-  head:
+#inject:
+# head:
     # - <link rel="stylesheet" href="/xxx.css">
-  bottom:
+#  bottom:
     # - <script src="xxxx"></script>
 
 # CDN 設置
