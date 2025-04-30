@@ -108,4 +108,3 @@ deploy:
   type: 'git'
   repo: git@github.com:Xten-no-brain/Xten-no-brain.github.io.git  # SSH
   branch: main  # 根据仓库设置
-
