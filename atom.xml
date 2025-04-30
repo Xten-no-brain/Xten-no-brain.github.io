@@ -6,7 +6,7 @@
   <link href="https://xten-no-brain.github.io/atom.xml" rel="self"/>
   
   <link href="https://xten-no-brain.github.io/"/>
-  <updated>2025-04-28T07:52:40.173Z</updated>
+  <updated>2025-04-30T13:17:12.565Z</updated>
   <id>https://xten-no-brain.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</id>
     <published>2025-04-27T14:49:19.000Z</published>
-    <updated>2025-04-28T07:52:40.173Z</updated>
+    <updated>2025-04-30T13:17:12.565Z</updated>
     
     
     
     
     <category term="网络" scheme="https://xten-no-brain.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
     
+    
+    <category term="计算机基础" scheme="https://xten-no-brain.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -36,13 +38,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</id>
     <published>2025-04-27T14:49:12.000Z</published>
-    <updated>2025-04-28T07:52:34.283Z</updated>
+    <updated>2025-04-30T13:17:04.798Z</updated>
     
     
     
     
     <category term="操作系统" scheme="https://xten-no-brain.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
+    
+    <category term="计算机基础" scheme="https://xten-no-brain.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -51,13 +55,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/Redis/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/Redis/</id>
     <published>2025-04-27T13:59:44.000Z</published>
-    <updated>2025-04-29T09:23:35.139Z</updated>
+    <updated>2025-04-30T13:16:56.368Z</updated>
     
     
     
     
     <category term="Redis" scheme="https://xten-no-brain.github.io/categories/Redis/"/>
     
+    
+    <category term="开发组件" scheme="https://xten-no-brain.github.io/tags/%E5%BC%80%E5%8F%91%E7%BB%84%E4%BB%B6/"/>
     
   </entry>
   
@@ -66,7 +72,7 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/MySQL/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/MySQL/</id>
     <published>2025-04-27T13:59:37.000Z</published>
-    <updated>2025-04-29T09:35:20.556Z</updated>
+    <updated>2025-04-30T13:24:41.844Z</updated>
     
     <content type="html"><![CDATA[<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p><p><strong>Server 层</strong>包含连接器、查询缓存、解析器、预处理器、优化器、执行器</p><p><strong>存储引擎层</strong>包含 InnoDB、MyISAM 等存储引擎以及数据</p><h2 id="SQL执行流程"><a href="#SQL执行流程" class="headerlink" title="SQL执行流程"></a>SQL执行流程</h2><p>从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以<strong>Key-Value</strong>形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Value，即查询结果。若没有，则</p><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="ACID四大特性"><a href="#ACID四大特性" class="headerlink" title="ACID四大特性"></a>ACID四大特性</h2><p>A：atomicity，原子性。通过 Undo log 实现</p><p>C：consistency，一致性。通过其它三个特性和应用层逻辑实现</p><p>I：isolation，隔离性。通过 MVCC 和锁实现</p><p>D：durability，持久性。通过 Redo log 实现</p><p>虽称为四大特性，但并不平级，<strong>AID</strong> 是为了达到 <strong>C</strong> 这一目标的手段</p><h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p>多版本并发控制</p><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1>]]></content>
     
@@ -81,6 +87,8 @@
     
     <category term="MySQL" scheme="https://xten-no-brain.github.io/categories/MySQL/"/>
     
+    
+    <category term="开发组件" scheme="https://xten-no-brain.github.io/tags/%E5%BC%80%E5%8F%91%E7%BB%84%E4%BB%B6/"/>
     
   </entry>
   
