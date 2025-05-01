@@ -6,7 +6,7 @@
   <link href="https://xten-no-brain.github.io/atom.xml" rel="self"/>
   
   <link href="https://xten-no-brain.github.io/"/>
-  <updated>2025-04-30T14:02:57.866Z</updated>
+  <updated>2025-05-01T13:44:53.795Z</updated>
   <id>https://xten-no-brain.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</id>
     <published>2025-04-27T14:49:19.000Z</published>
-    <updated>2025-04-30T14:02:57.866Z</updated>
+    <updated>2025-05-01T13:44:53.795Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h1><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;网络模型&quot;&gt;&lt;a href=&quot;#网络模型&quot; class=&quot;headerlink&quot; title=&quot;网络模型&quot;&gt;&lt;/a&gt;网络模型&lt;/h1&gt;&lt;h1 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot; class=&quot;headerlink&quot; title=&quot;HTTP&quot;&gt;&lt;/a</summary>
+      
     
     
     
@@ -38,8 +45,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</id>
     <published>2025-04-27T14:49:12.000Z</published>
-    <updated>2025-04-30T14:03:03.017Z</updated>
+    <updated>2025-05-01T13:43:39.740Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><h1 id="系统内核"><a href="#系统内核" class="headerlink" title="系统内核"></a>系统内核</h1><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h1 id="网络系统"><a href="#网络系统" class="headerlink" title="网络系统"></a>网络系统</h1><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;硬件&quot;&gt;&lt;a href=&quot;#硬件&quot; class=&quot;headerlink&quot; title=&quot;硬件&quot;&gt;&lt;/a&gt;硬件&lt;/h1&gt;&lt;h1 id=&quot;系统内核&quot;&gt;&lt;a href=&quot;#系统内核&quot; class=&quot;headerlink&quot; title=&quot;系统内核&quot;&gt;&lt;/a&gt;系统内核&lt;/h</summary>
+      
     
     
     
@@ -55,8 +69,15 @@
     <link href="https://xten-no-brain.github.io/2025/04/27/Redis/"/>
     <id>https://xten-no-brain.github.io/2025/04/27/Redis/</id>
     <published>2025-04-27T13:59:44.000Z</published>
-    <updated>2025-04-30T14:02:50.633Z</updated>
+    <updated>2025-05-01T17:31:47.289Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h1 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h1><h2 id="AOF日志"><a href="#AOF日志" class="headerlink" title="AOF日志"></a>AOF日志</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>宕机或服务器重启后，恢复 Redis 缓存中的数据。</p><p>如何实现？</p><p>当 Redis 写操作执行成功后，将其追加到 AOF 文件中，该文件位于磁盘中，可以实现持久化存储。</p><p>读操作是否需要存储？</p><p>不需要，Redis 本身就是</p><h3 id="风险"><a href="#风险" class="headerlink" title="风险"></a>风险</h3><p>一方面，将 Redis 命令 追加到 AOF 文件这一操作，会阻塞主进程接受新的 Redis 命令；</p><p>另一方面，由于写操作执行成功后才做追加，如果此时服务器挂了，还是会造成数据丢失。</p><h2 id="RDB快照"><a href="#RDB快照" class="headerlink" title="RDB快照"></a>RDB快照</h2><h1 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h1><h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><h2 id="哨兵机制"><a href="#哨兵机制" class="headerlink" title="哨兵机制"></a>哨兵机制</h2><h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="缓存三兄弟"><a href="#缓存三兄弟" class="headerlink" title="缓存三兄弟"></a>缓存三兄弟</h2><h2 id="数据库与缓存的一致性问题"><a href="#数据库与缓存的一致性问题" class="headerlink" title="数据库与缓存的一致性问题"></a>数据库与缓存的一致性问题</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;h1 id=&quot;持久化机制&quot;&gt;&lt;a href=&quot;#持久化机制&quot; class=&quot;headerlink&quot; title=&quot;持久化机制&quot;&gt;</summary>
+      
     
     
     
