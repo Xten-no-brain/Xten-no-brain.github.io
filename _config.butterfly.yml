@@ -4,7 +4,7 @@
 
 nav:
   # 导航栏 Logo 图片
-  logo: 
+  logo: /img/Mars.jpg
   # 是否显示标题
   display_title: true
   # 是否固定导航栏
@@ -68,29 +68,14 @@ inject:
 # 图片设置
 # --------------------------------------
 
-# 網站的 favicon 圖標
-favicon: /img/favicon.png
+# 网站的 favicon 图标
+favicon: 
 
 # 头像设置
 avatar:
-  # 头像图片链接
-  img: /img/Avatar.jpg
-  # 开启后头像一直转圈
-  effect: true
-  head:
-    - |
-      <style>
-        /* 暴力禁用所有动画 */
-        .avatar, .avatar-img, #avatar { 
-          animation: none !important; 
-          -webkit-animation: none !important;
-          transform: none !important;
-        }
-        /* 核武器：直接删除动画定义 */
-        @keyframes spin { 
-          to { transform: none; } 
-        }
-      </style>
+  img: /img/Avatar.jpg # 头像图片链接
+  effect: false # 开启后头像一直转圈
+  
 
 # 禁用所有顶部图片
 disable_top_img: false
@@ -144,9 +129,9 @@ cover:
 # 替換損壞的圖片
 error_img:
   # 友鏈頁面的錯誤圖片
-  flink: /img/friend_404.gif
+  flink: 
   # 文章頁面的錯誤圖片
-  post_page: /img/404.jpg
+  post_page: 
 
 # 簡單的 404 頁面
 error_404:
@@ -190,35 +175,39 @@ post_meta:
 # 首页设置
 # --------------------------------------
 
-# 首頁頭圖的設置
-# 默認: 頭圖全屏，站點信息在中間
-# 站點信息的位置，例如: 300px/300em/300rem/10%
+# 站点标题设置（左上角）
+site_title: "Xten's Blog"
+
+# 首页头图设置
+# 默认: 头图全屏，站点信息在中间
+# 站点信息的位置，例如: 300px/300em/300rem/10%
 index_site_info_top:
-# 頭圖的高度，例如: 300px/300em/300rem
-index_top_img_height: 400px
+# 头图的高度，例如: 300px/300em/300rem
+index_top_img_height: 
 
 # 首页标题设置
-title: 'X'
+title: '前路漫漫'
 # 副标题设置
 subtitle: 
   # 是否启用副标题
   enable: true
   # 是否启用打字机效果
   effect: true
-  # 自定義 typed.js
+  # 自定义 typed.js
   # https://github.com/mattboldt/typed.js/#customization
   typed_option:
-  # 來源 - 調用第三方服務 API（僅限中文）
-  # 它將首先顯示來源，然後顯示副標題內容
-  # 選擇: false/1/2/3
+  # 來源 - 调用第三方服务 API（仅限中文）
+  # 它将首先显示来源，然后显示副标题内容
+  # 选择: false/1/2/3
   # false - 禁用此功能
   # 1 - hitokoto.cn
   # 2 - yijuzhan.com
   # 3 - jinrishici.com
   source: true
-  # 如果關閉打字機效果，副標題將僅顯示 sub 的第一行內容
+  # 如果关闭打字机效果，副标题將仅显示 sub 的第一行内容
   sub:
     - 悟已往之不谏，知来者之可追
+    - 真正能阻挡前行的，只有伤病
 
 # 首頁文章佈局
 # 1: 行佈局
@@ -344,7 +333,7 @@ aside:
   # 移动设备上是否启用侧边栏
   mobile: true
   # 侧边栏位置：left / right
-  position: right
+  position: left
   display:
     # 歸檔頁面是否顯示側邊欄
     archive: true
@@ -356,7 +345,7 @@ aside:
     # 是否显示作者信息卡片
     enable: true
     # 作者描述
-    description:
+    description: noob
     button:
       # 是否显示按鈕
       enable: false
@@ -431,17 +420,17 @@ aside:
     # 排序順序：1 表示升序，-1 表示降序
     order: -1
   card_webinfo:
-    # 是否顯示網站信息卡片
+    # 是否显示网址信息卡片
     enable: true
-    # 是否顯示文章數量
+    # 是否显示文章数量
     post_count: true
-    # 是否顯示最後推送日期
+    # 是否显示最后更新日期
     last_push_date: true
     sort_order:
-    # 發佈日期與當前日期的時間差
+    # 发布日期与当前日期的时间差
     # 格式：Month/Day/Year Time 或 Year/Month/Day Time
-    # 如果不啟用此功能，請留空
-    runtime_date:
+    # 如果不启用此功能，请留空
+    runtime_date: 2025/04/26 00:00
 
 # --------------------------------------
 # 右下角按鈕設置
@@ -523,22 +512,22 @@ copy:
 
 # 需要安裝 hexo-wordcount 插件
 wordcount:
-  # 是否啟用字數統計
-  enable: false
-  # 在文章元信息中顯示字數統計
+  # 是否启用字数统计
+  enable: true
+  # 在文章元信息中显示字数统计
   post_wordcount: true
-  # 在文章元信息中顯示閲讀時間
+  # 在文章元信息中显示阅读时间
   min2read: true
-  # 在側邊欄網站信息中顯示總字數
+  # 在侧边栏网站信息中显示总字数
   total_wordcount: true
 
 # 不蒜子 PV / UV 統計
 busuanzi:
-  # 網站 UV 統計
-  site_uv: true
-  # 網站 PV 統計
+  # 访客数量
+  site_uv: false
+  # 浏览量
   site_pv: true
-  # 頁面 PV 統計
+  # 页面浏览量
   page_pv: true
 
 # --------------------------------------
@@ -570,33 +559,14 @@ math:
 # --------------------------------------
 
 search:
-  # 選擇：algolia_search / local_search / docsearch
-  # 如果不需要搜索功能，保持為空
-  use:
-  placeholder:
-
-  # Algolia 搜索
-  algolia_search:
-    # 每頁搜索結果數量
-    hitsPerPage: 6
-
-  # 本地搜索
-  local_search:
-    # 頁面加載時預加載搜索數據
-    preload: false
-    # 每篇文章顯示的頂部 n 個搜索結果，設置為 -1 顯示所有結果
-    top_n_per_article: 1
-    # 將 HTML 字符串反轉義為可讀內容
-    unescape: false
-    CDN:
-
-  # Docsearch
-  # https://docsearch.algolia.com/
-  docsearch:
-    appId:
-    apiKey:
-    indexName:
-    option:
+  use: # local_search
+#  placeholder: "输入关键词..." # 搜索框占位符（例如：输入关键词...）
+#  local_search:
+#    path: search.xml  # 指定搜索索引文件路径（默认值通常为 search.xml）
+#    preload: true
+#    top_n_per_article: -1
+#    unescape: false
+#    CDN:  # 留空或填写有效 CDN 地址  
 
 # --------------------------------------
 # 分享系統
@@ -605,7 +575,7 @@ search:
 share:
   # 選擇：sharejs / addtoany
   # 如果不需要分享功能，保持為空
-  use: sharejs
+  use: 
 
   # Share.js
   # https://github.com/overtrue/share.js
@@ -618,17 +588,13 @@ share:
     item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
 
 # --------------------------------------
-# 評論系統
+# 评论系统
 # --------------------------------------
 
 comments:
-  # 最多兩個評論系統，第一個將作為默認顯示
-  # 如果不需要評論功能，保持為空
-  # 選擇：Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  # 两个评论系统的格式：Disqus,Waline
-  use: waline
+  use: 
   # 按钮旁边显示评论系统名称
-  text: true
+  text: false
   # 懒加载：评论系统将在评论元素进入浏览器视口时加载
   # 如果设置为 true，评论计数将无效
   lazyload: false
@@ -637,98 +603,23 @@ comments:
   # 在主頁显示评论计数
   card_post_count: false
 
-# Waline 评论插件配置，一个简单的评论系统，基于 Valine 开发，支持后端
 # 官方文档：https://waline.js.org/
+# Waline 评论插件配置
 waline:
-  serverURL: https://xten-no-brain-github-q70i16qq8-xten-no-brains-projects.vercel.app/  # 替换为你的 Waline 服务端真实地址
-  lang: zh-CN                                 # 语言
-  emoji: 
-    - https://unpkg.com/@waline/emojis@latest/weibo  # 微博表情包
-    - https://unpkg.com/@waline/emojis@latest/alus    # 阿鲁表情包（可选）
-  requiredMeta: [nick]                        # 必填字段（nick=昵称，mail=邮箱）
-  meta: [nick] # 隐藏邮箱、网址输入框
-  login: disabled                              # 启用登录功能（需服务端配置第三方登录）
-  commentCount: true                          # 显示评论数
-  pageSize: 10                                # 每页评论数（可选）
-  avatar: "mp"                                # 头像风格（可选，如 'mp'/'retro'）
-  visitor: true                               # 启用文章访问量统计（可选）
-  highlight: true                             # 代码高亮（需额外引入 CSS）
-
-# Utterances 評論插件配置
-# 官方文檔：https://utteranc.es/
-utterances:
-  # 存儲評論的 GitHub 倉庫
-  repo:
-  # 問題映射方式，可選值：pathname/url/title/og:title
-  issue_term: pathname
-  # 淺色主題，可選值：github-light
-  light_theme: github-light
-  # 深色主題，可選值：photon-dark
-  dark_theme: photon-dark
-
-# Facebook 評論插件配置
-# 官方文檔：https://developers.facebook.com/docs/plugins/comments/
-facebook_comments:
-  # 應用 ID
-  app_id:
-  # 用户 ID，可選
-  user_id:
-  # 每頁顯示評論數
+  serverURL: https://xten-no-brain-github-q70i16qq8-xten-no-brains-projects.vercel.app/
+  lang: zh-CN
+  emoji:
+    - https://unpkg.com/@waline/emojis@latest/weibo
+    - https://unpkg.com/@waline/emojis@latest/alus
+  requiredMeta: [nick]  # 必填字段：仅昵称
+  meta: [nick]          # 显示字段：仅昵称输入框
+  login: disabled       # 禁用登录功能（允许游客评论）
+  commentCount: true
   pageSize: 10
-  # 評論排序方式，可選值：social / time / reverse_time
-  order_by: social
-  # 語言設置
-  lang: zh_TW
+  avatar: "mp"
+  visitor: true
+  highlight: true
 
-# Twikoo 評論插件配置
-# 官方文檔：https://github.com/imaegoo/twikoo
-twikoo:
-  # 環境 ID
-  envId:
-  # 區域
-  region:
-  # 使用 Twikoo 的訪客計數作為頁面的訪客量
-  visitor: false
-  # 其他可選配置
-  option:
-
-# Giscus 評論插件配置
-# 官方文檔：https://giscus.app/
-giscus:
-  # 倉庫地址
-  repo:
-  # 倉庫 ID
-  repo_id:
-  # 分類 ID
-  category_id:
-  # 主題配置，light 為淺色主題，dark 為深色主題
-  theme:
-    light: light
-    dark: dark
-  # 其他可選配置
-  option:
-
-# Remark42 評論插件配置
-# 官方文檔：https://remark42.com/docs/configuration/frontend/
-remark42:
-  # 服務器地址
-  host:
-  # 站點 ID
-  siteId:
-  # 其他可選配置
-  option:
-
-# Artalk 評論插件配置
-# 官方文檔：https://artalk.js.org/guide/frontend/config.html
-artalk:
-  # 服務器地址
-  server:
-  # 站點名
-  site:
-  # 使用 Artalk 的訪客計數作為頁面的訪客量
-  visitor: false
-  # 其他可選配置
-  option:
 
 # --------------------------------------
 # 聊天服務配置

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 'X'
+title: "Xten's Blog"
 subtitle: ''
 description: 
 keywords: 
@@ -100,11 +100,16 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: butterfly
 
-
+# 搜索索引生成配置
+# search:
+#  path: search.xml   # 索引文件路径
+#  field: all         # 搜索范围：post/page/all
+#  content: true      # 包含文章内容
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
-  repo: git@github.com:Xten-no-brain/Xten-no-brain.github.io.git  # SSH
+  type: git
+  repo: 
+    github: git@github.com:Xten-no-brain/Xten-no-brain.github.io.git  # SSH
   branch: main  # 根据仓库设置
