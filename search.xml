@@ -5,8 +5,8 @@
     
     <entry>
       <title>网络</title>
-      <link href="/2025/04/27/-/"/>
-      <url>/2025/04/27/-/</url>
+      <link href="/2025/04/27/%E7%BD%91%E7%BB%9C/"/>
+      <url>/2025/04/27/%E7%BD%91%E7%BB%9C/</url>
       
         <content type="html"><![CDATA[<h1 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h1><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h1>]]></content>
       
@@ -30,8 +30,8 @@
     
     <entry>
       <title>操作系统</title>
-      <link href="/2025/04/27/-/"/>
-      <url>/2025/04/27/-/</url>
+      <link href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
       
         <content type="html"><![CDATA[<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><h1 id="系统内核"><a href="#系统内核" class="headerlink" title="系统内核"></a>系统内核</h1><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h1 id="网络系统"><a href="#网络系统" class="headerlink" title="网络系统"></a>网络系统</h1><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1>]]></content>
       
@@ -55,8 +55,8 @@
     
     <entry>
       <title>Redis</title>
-      <link href="/2025/04/27/redis/"/>
-      <url>/2025/04/27/redis/</url>
+      <link href="/2025/04/27/Redis/"/>
+      <url>/2025/04/27/Redis/</url>
       
         <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h1 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h1><h2 id="AOF日志"><a href="#AOF日志" class="headerlink" title="AOF日志"></a>AOF日志</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>宕机或服务器重启后，恢复 Redis 缓存中的数据</p><p><strong>如何实现？</strong></p><p>当 Redis 写操作执行成功后，将其追加到 AOF 日志中，该文件位于磁盘中，可以实现持久化存储</p><p><strong>读操作是否需要存储？</strong></p><p>不需要，读操作不会改变数据状态，没有记录的必要</p><p><strong>为什么要在写操作执行成功后才追加？</strong></p><ol><li>保证 AOF 中记录的语法都是正确的，避免语法检查这一不必要的开销</li><li>避免当前写操作的执行被阻塞，保证 Redis 性能</li></ol><h3 id="潜在风险"><a href="#潜在风险" class="headerlink" title="潜在风险"></a>潜在风险</h3><ol><li>将 Redis 命令 追加到 AOF 这一操作，会阻塞主进程执行下一个 Redis 命令</li><li>由于写操作执行成功后才做追加，如果此时服务器挂了，还是会造成数据丢失</li></ol><h3 id="写回策略"><a href="#写回策略" class="headerlink" title="写回策略"></a>写回策略</h3><p>Redis 提供了三种写回硬盘的策略</p><ol><li>Always，每条写操作执行成功后，立即将 AOF 日志写回硬盘</li><li>Everysec，写操作执行成功后，先将其加入 AOF 缓冲区，每隔一秒将缓冲区的内容写回硬盘</li><li>No，写操作执行成功后，将其加入 AOF 缓冲区，由操作系统决定何时写回硬盘</li></ol><p><strong>这三种策略是如何实现的？</strong></p><p>本质上是 fsync() 函数的调用时机不同</p><p>Always 每次写入 AOF 数据后，立即调用 fsync() 函数</p><p>Everysec 创建一个异步任务来调用 fsync() 函数</p><p>No 永不调用 fsync() 函数</p><p><strong>如何选取？</strong></p><p>上述风险中提到的两个点，本质上是互斥的，无法同时兼顾</p><p>具体的写回策略须根据业务需要进行设置，给出参考</p><ol><li>追求高性能，采用 No 策略</li><li>追求高可靠，采用 Always 策略，尽可能减少数据丢失</li><li>追求性能且允许少量数据丢失，采取折中的 Everysec 策略</li></ol><h3 id="重写机制"><a href="#重写机制" class="headerlink" title="重写机制"></a>重写机制</h3><p>随着执行的写操作命令越来越多，AOF 文件的大小越来越大</p><p>重启 Redis 后，需要读 AOF 文件恢复缓存数据，若 AOF 文件太大，恢复过程就很慢</p><p>重写机制就是为了避免这一情况的出现</p><p><strong>如何实现？</strong></p><p>Redis 以 Key-Value 形式存储数据，对于每个 Key，只保留其最新的 Value，这样即使这个键值对被修改多次，也只会保留最新状态，并在 AOF 文件中用一条命令记录它，降低 AOF 文件大小</p><p><strong>具体过程？</strong></p><p>先创建一个新的 AOF 文件，在其中进行重写，重写成功后再覆盖旧的 AOF 文件</p><p><strong>为什么不直接覆写在旧 AOF 文件？</strong></p><p>先写到新的 AOF 中，失败的话，直接删除这个文件即可，避免因重写失败污染AOF 文件</p><h2 id="RDB快照"><a href="#RDB快照" class="headerlink" title="RDB快照"></a>RDB快照</h2><h1 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h1><h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><h2 id="哨兵机制"><a href="#哨兵机制" class="headerlink" title="哨兵机制"></a>哨兵机制</h2><h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="缓存三兄弟"><a href="#缓存三兄弟" class="headerlink" title="缓存三兄弟"></a>缓存三兄弟</h2><h3 id="雪崩"><a href="#雪崩" class="headerlink" title="雪崩"></a>雪崩</h3><h3 id="击穿"><a href="#击穿" class="headerlink" title="击穿"></a>击穿</h3><h3 id="穿透"><a href="#穿透" class="headerlink" title="穿透"></a>穿透</h3><h2 id="数据库与缓存的一致性问题"><a href="#数据库与缓存的一致性问题" class="headerlink" title="数据库与缓存的一致性问题"></a>数据库与缓存的一致性问题</h2>]]></content>
       
@@ -80,8 +80,8 @@
     
     <entry>
       <title>MySQL</title>
-      <link href="/2025/04/27/mysql/"/>
-      <url>/2025/04/27/mysql/</url>
+      <link href="/2025/04/27/MySQL/"/>
+      <url>/2025/04/27/MySQL/</url>
       
         <content type="html"><![CDATA[<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p><p><strong>Server 层</strong>包含连接器、查询缓存、解析器、预处理器、优化器、执行器</p><p><strong>存储引擎层</strong>包含 InnoDB、MyISAM 等存储引擎以及数据</p><h2 id="SQL执行流程"><a href="#SQL执行流程" class="headerlink" title="SQL执行流程"></a>SQL执行流程</h2><p>从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以<strong>Key-Value</strong>形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Value，即查询结果。若没有，则</p><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="ACID四大特性"><a href="#ACID四大特性" class="headerlink" title="ACID四大特性"></a>ACID四大特性</h2><p>A：atomicity，原子性。通过 Undo log 实现</p><p>C：consistency，一致性。通过其它三个特性和应用层逻辑实现</p><p>I：isolation，隔离性。通过 MVCC 和锁实现</p><p>D：durability，持久性。通过 Redo log 实现</p><p>虽称为四大特性，但并不平级，<strong>AID</strong> 是为了达到 <strong>C</strong> 这一目标的手段</p><h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p>多版本并发控制</p><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1>]]></content>
       
