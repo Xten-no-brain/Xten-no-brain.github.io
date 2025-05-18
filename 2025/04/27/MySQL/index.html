@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="架构MySQL分为 Server 层和存储引擎层 Server 层包含连接器、查询缓存、解析器、预处理器、优化器、执行器 存储引擎层包含 InnoDB、MyISAM 等存储引擎以及数据   SQL执行流程从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以Key-Value形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Va">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SQL 语法查询时关键字执行顺序 FROM 找到要查的表，如果有 JOIN 则建立联表  WHERE 过滤分组前的数据  GROUP BY 进行分组  HAVING 过滤分组后的数组  SELECT 选择查询的字段  DISTINCT 去重  ORDER BY 对查询结果作排序  LIMIT &#x2F; OFFSET 限制行数 例：LIMIT 10 OFFSET 20，跳过前 20 行并往后查">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL">
 <meta property="og:url" content="https://xten-no-brain.github.io/2025/04/27/MySQL/index.html">
 <meta property="og:site_name" content="Xten&#39;s Blog">
-<meta property="og:description" content="架构MySQL分为 Server 层和存储引擎层 Server 层包含连接器、查询缓存、解析器、预处理器、优化器、执行器 存储引擎层包含 InnoDB、MyISAM 等存储引擎以及数据   SQL执行流程从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以Key-Value形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Va">
+<meta property="og:description" content="SQL 语法查询时关键字执行顺序 FROM 找到要查的表，如果有 JOIN 则建立联表  WHERE 过滤分组前的数据  GROUP BY 进行分组  HAVING 过滤分组后的数组  SELECT 选择查询的字段  DISTINCT 去重  ORDER BY 对查询结果作排序  LIMIT &#x2F; OFFSET 限制行数 例：LIMIT 10 OFFSET 20，跳过前 20 行并往后查">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xten-no-brain.github.io/img/Avatar.jpg">
 <meta property="article:published_time" content="2025-04-27T13:59:37.000Z">
-<meta property="article:modified_time" content="2025-05-18T13:56:13.950Z">
+<meta property="article:modified_time" content="2025-05-18T23:27:08.891Z">
 <meta property="article:author" content="Xten">
 <meta property="article:tag" content="开发组件">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://xten-no-brain.github.io/2025/04/27/MySQL/",
   "image": "https://xten-no-brain.github.io/img/Avatar.jpg",
   "datePublished": "2025-04-27T13:59:37.000Z",
-  "dateModified": "2025-05-18T13:56:13.950Z",
+  "dateModified": "2025-05-18T23:27:08.891Z",
   "author": [
     {
       "@type": "Person",
@@ -169,21 +169,136 @@
   }
 </style>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Xten's Blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">MySQL</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">MySQL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-27T13:59:37.000Z" title="发表于 2025-04-27 21:59:37">2025-04-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-18T13:56:13.950Z" title="更新于 2025-05-18 21:56:13">2025-05-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">937</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p>
-<p><strong>Server 层</strong>包含连接器、查询缓存、解析器、预处理器、优化器、执行器</p>
-<p><strong>存储引擎层</strong>包含 InnoDB、MyISAM 等存储引擎以及数据</p>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">MySQL</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">MySQL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-27T13:59:37.000Z" title="发表于 2025-04-27 21:59:37">2025-04-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-18T23:27:08.891Z" title="更新于 2025-05-19 07:27:08">2025-05-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="SQL-语法"><a href="#SQL-语法" class="headerlink" title="SQL 语法"></a>SQL 语法</h1><h2 id="查询时关键字执行顺序"><a href="#查询时关键字执行顺序" class="headerlink" title="查询时关键字执行顺序"></a><strong>查询时关键字执行顺序</strong></h2><ul>
+<li><p>FROM 找到要查的表，如果有 JOIN 则建立联表</p>
+</li>
+<li><p>WHERE 过滤分组前的数据</p>
+</li>
+<li><p>GROUP BY 进行分组</p>
+</li>
+<li><p>HAVING 过滤分组后的数组</p>
+</li>
+<li><p>SELECT 选择查询的字段</p>
+</li>
+<li><p>DISTINCT 去重</p>
+</li>
+<li><p>ORDER BY 对查询结果作排序</p>
+</li>
+<li><p>LIMIT &#x2F; OFFSET 限制行数</p>
+<p>例：LIMIT 10 OFFSET 20，跳过前 20 行并往后查 10 行</p>
+</li>
+</ul>
 <br>
 
-<h2 id="SQL执行流程"><a href="#SQL执行流程" class="headerlink" title="SQL执行流程"></a>SQL执行流程</h2><p>从连接器开始，基于TCP协议确定客户端是否连接成功。连接成功后，当服务端收到客户端的 SQL 语句后，先以<strong>Key-Value</strong>形式到查询缓存里查看是否有这条SQL语句，如果有，则直接返回相应的 Value，即查询结果。若没有，则</p>
+<br>
+
+<h2 id="慢-SQL-调优"><a href="#慢-SQL-调优" class="headerlink" title="慢 SQL 调优"></a>慢 SQL 调优</h2><h3 id="从SQL-语句出发"><a href="#从SQL-语句出发" class="headerlink" title="从SQL 语句出发"></a>从SQL 语句出发</h3><ul>
+<li><p>避免使用 **SELECT ***</p>
+<p>读取表中所有字段，增加磁盘 I&#x2F;O 和内存消耗</p>
+</li>
+<li><p>使用 <strong>JOIN</strong> 而非<strong>子查询</strong></p>
+<p>嵌套查询，时间复杂度为 O(N²)</p>
+</li>
+<li><p>用 <strong>IN</strong> 代替 <strong>!&#x3D;</strong> 或 <strong>&lt;&gt;</strong></p>
+<p>!&#x3D; 或 &lt;&gt; 无法有效利用索引，特别当列允许 <strong>NULL</strong> 时，会遍历所有列</p>
+<p>IN 的列表过长可能导致全表扫描，需结合<strong>索引</strong></p>
+</li>
+<li><p>避免<strong>前导通配符</strong></p>
+<p>LIKE 利用的是 % 前的字段，使用 <strong>LIKE ‘%abc%’</strong> 无法利用索引，改为 <strong>LIKE ‘abc%’</strong></p>
+</li>
+</ul>
+<br>
+
+<h3 id="从索引出发"><a href="#从索引出发" class="headerlink" title="从索引出发"></a>从索引出发</h3><ul>
+<li><p>避免<strong>过多索引</strong></p>
+<p>每个索引都需要占用磁盘空间，增加写操作。优先为<strong>高频查询字段</strong>建索引</p>
+</li>
+<li><p>使用<strong>覆盖索引</strong>减少<strong>回表</strong></p>
+<p>索引包含查询所需字段，直接从<strong>索引树</strong>返回结果</p>
+</li>
+</ul>
+<br>
+
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
+<li><p><strong>EXPLAIN</strong> 分析执行计划</p>
+<ul>
+<li>type：ALL 表示全表扫描，index 表示索引扫描，ref 表示索引查找</li>
+<li>key：实际使用的索引</li>
+<li>rows：预估扫描行数</li>
+</ul>
+</li>
+<li><p>合并批量插入</p>
+<p>每条 <strong>INSERT</strong> 都需要多次<strong>事务提交</strong>、<strong>日志写入</strong>、<strong>网络开销</strong></p>
+<p>合并可减少事务开销和磁盘 I&#x2F;O</p>
+</li>
+<li><p>硬件优化</p>
+<ul>
+<li>内存：扩大 <strong>Buffer Pool</strong>，减少磁盘 I&#x2F;O</li>
+<li>磁盘：使用 <strong>SSD</strong> 替换 <strong>HDD</strong>，提升随机读写速度</li>
+<li>CPU：<strong>并行</strong>查询时，多核 CPU 可加速计算</li>
+</ul>
+</li>
+</ul>
 <br>
 
 <br>
 
-<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="ACID四大特性"><a href="#ACID四大特性" class="headerlink" title="ACID四大特性"></a>ACID四大特性</h2><p>A：atomicity，原子性。通过 Undo log 实现</p>
+<h2 id="笛卡尔积问题"><a href="#笛卡尔积问题" class="headerlink" title="笛卡尔积问题"></a>笛卡尔积问题</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>多表查询且无连接条件时返回的结果</p>
+<p>假设有两个集合，A &#x3D; {a, b}, B &#x3D; {1, 2, 3}</p>
+<p>则 A 和 B 的笛卡尔积 &#x3D; {{a, 1}, {a, 2}, {a, 3}, {b, 1}, {b, 2}, {b, 3}}，共 6 条记录</p>
+<p><strong>MySQL 中的例子</strong></p>
+<p>假设有表 1、表 2 两张表，数据量分别为 100 和 1000。现在对这两张表作 JOIN，若未建立查询条件，则需要从数据库中将这 1100 条数据拉取到内存中，在内存中进行100 * 1000次的计算，并对这 10W 条数据全表扫描找到想要的数据</p>
+<br>
+
+<h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><ul>
+<li>内存占用高：如果两张表各有 10W 条数据，那么<strong>中间结果集</strong>就有 100 亿条，可能导致 <strong>OOM</strong></li>
+<li>I&#x2F;O 频繁：可能把<strong>中间结果集</strong>写入磁盘的<strong>临时表文件</strong>，造成磁盘频繁读写</li>
+<li>耗时长：若<strong>中间结果集</strong>很大，且无过滤条件，只能<strong>全表扫描</strong></li>
+</ul>
+<br>
+
+<h3 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h3><ul>
+<li>显式指定 JOIN，确保多表查询包含 ON 或 USING</li>
+<li>单表查询、业务耦合</li>
+<li>使用 EXPLAIN 排查，若输出中的 type 列未 ALL 且 rows 极大，很可能发生了笛卡尔积</li>
+</ul>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="SQL-执行流程"><a href="#SQL-执行流程" class="headerlink" title="SQL 执行流程"></a>SQL 执行流程</h2><p>MySQL分为 <strong>Server 层</strong>和<strong>存储引擎层</strong></p>
+<p><strong>Server 层</strong></p>
+<ul>
+<li>连接器：管理客户端连接、身份认证、权限验证</li>
+<li>查询缓存：缓存 SELECT 查询的完整结果，加速重复查询（<strong>8.0 版本移除</strong>）</li>
+<li>解析器：进行词法分析（识别如 SELECT 的关键字）和语法分析，无误则建立语法树</li>
+<li>预处理器：判断表和字段是否存在，将 ***** 扩展为表上的所有列</li>
+<li>优化器：生成并选择最优执行计划（<strong>全表扫描</strong> OR <strong>索引扫描</strong>）</li>
+<li>执行器：执行查询计划，与存储引擎交互并返回结果给客户端</li>
+</ul>
+<p><strong>存储引擎层</strong></p>
+<ul>
+<li>InnoDB</li>
+<li>MyISAM</li>
+<li>Memory</li>
+<li>…</li>
+</ul>
+<p>不同存储引擎共用一个 Server 层，5.5之后，InnoDB 作为默认存储引擎。<strong>索引数据结构</strong>就是由存储引擎层实现的，不同存储引擎支持的索引类型不同</p>
+<br>
+
+<br>
+
+<br>
+
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="ACID-四大特性"><a href="#ACID-四大特性" class="headerlink" title="ACID 四大特性"></a>ACID 四大特性</h2><p>A：atomicity，原子性。通过 Undo log 实现</p>
 <p>C：consistency，一致性。通过其它三个特性和应用层逻辑实现</p>
 <p>I：isolation，隔离性。通过 MVCC 和锁实现</p>
 <p>D：durability，持久性。通过 Redo log 实现</p>
 <p>虽称为四大特性，但并不平级，<strong>AID</strong> 是为了达到 <strong>C</strong> 这一目标的手段</p>
+<br>
+
 <br>
 
 <h2 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h2><ul>
@@ -205,29 +320,40 @@
 <table>
 <thead>
 <tr>
-<th align="center">读未提交</th>
-<th align="center">读已提交</th>
-<th align="center">可重复读</th>
-<th align="center">串行化</th>
+<th align="center">隔离级别</th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">幻读</th>
+<th align="center">加锁读</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">脏读</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">不可重复读</td>
-<td align="center">不可重复读</td>
-<td align="center"></td>
+<td align="center"><strong>RU</strong></td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">幻读</td>
-<td align="center">幻读</td>
-<td align="center">极少的幻读</td>
+<td align="center"><strong>RC</strong></td>
 <td align="center"></td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>RR</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✅（极少）</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>串行化</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✅</td>
 </tr>
 </tbody></table>
 <p>脏读：读到其他事务还未提交的数据</p>
@@ -265,7 +391,7 @@
 <td align="center">✅</td>
 </tr>
 </tbody></table>
-<p><strong>为什么默认隔离级别为 RR，阿里却用 RC ？</strong></p>
+<p><strong>为什么默认隔离级别为 RR，却有很多互联网公司用 RC ？</strong></p>
 <ul>
 <li>当前业务场景下，幻读的影响不大</li>
 <li>提高并发性能</li>
@@ -274,7 +400,11 @@
 <p>串行化的并发性能过低</p>
 <br>
 
+<br>
+
 <h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p>多版本并发控制</p>
+<br>
+
 <br>
 
 <br>
@@ -283,7 +413,11 @@
 
 <br>
 
+<br>
+
 <h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><br>
+
+<br>
 
 <br>
 
@@ -291,4 +425,6 @@
 
 <br>
 
-<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io">Xten</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io/2025/04/27/MySQL/">https://xten-no-brain.github.io/2025/04/27/MySQL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://xten-no-brain.github.io" target="_blank">Xten's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E7%BB%84%E4%BB%B6/">开发组件</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/2025/04/27/Redis/" title="Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Redis</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/2025/04/27/Redis/" title="Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-27</div><div class="info-item-2">Redis</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info-name">Xten</div><div class="author-info-description">Noob</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Xten-no-brain" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="/contact/" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">最近太忙了，先鸽一阵子</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">SQL执行流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">ACID四大特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">2.2.</span> <span class="toc-text">隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC"><span class="toc-number">2.3.</span> <span class="toc-text">MVCC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">3.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%81"><span class="toc-number">4.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">5.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">6.</span> <span class="toc-text">内存</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/MySQL/" title="MySQL">MySQL</a><time datetime="2025-05-18T13:56:13.950Z" title="更新于 2025-05-18 21:56:13">2025-05-18</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Xten</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<br>
+
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io">Xten</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io/2025/04/27/MySQL/">https://xten-no-brain.github.io/2025/04/27/MySQL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://xten-no-brain.github.io" target="_blank">Xten's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E7%BB%84%E4%BB%B6/">开发组件</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/2025/04/27/Redis/" title="Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Redis</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/2025/04/27/Redis/" title="Redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-27</div><div class="info-item-2">Redis</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info-name">Xten</div><div class="author-info-description">Noob</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Xten-no-brain" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="/contact/" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">最近太忙了，先鸽一阵子</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">SQL 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%97%B6%E5%85%B3%E9%94%AE%E5%AD%97%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">查询时关键字执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%85%A2-SQL-%E8%B0%83%E4%BC%98"><span class="toc-number">1.2.</span> <span class="toc-text">慢 SQL 调优</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8ESQL-%E8%AF%AD%E5%8F%A5%E5%87%BA%E5%8F%91"><span class="toc-number">1.2.1.</span> <span class="toc-text">从SQL 语句出发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%B4%A2%E5%BC%95%E5%87%BA%E5%8F%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">从索引出发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">1.2.3.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">笛卡尔积问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.2.</span> <span class="toc-text">存在问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D"><span class="toc-number">1.3.3.</span> <span class="toc-text">如何避免</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">SQL 执行流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID-%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">ACID 四大特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">3.2.</span> <span class="toc-text">隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVCC"><span class="toc-number">3.3.</span> <span class="toc-text">MVCC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">4.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%81"><span class="toc-number">5.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">6.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">7.</span> <span class="toc-text">内存</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/MySQL/" title="MySQL">MySQL</a><time datetime="2025-05-18T23:27:08.891Z" title="更新于 2025-05-19 07:27:08">2025-05-19</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Xten</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
