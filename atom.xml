@@ -6,7 +6,7 @@
   <link href="https://xten-no-brain.github.io/atom.xml" rel="self"/>
   
   <link href="https://xten-no-brain.github.io/"/>
-  <updated>2025-05-19T11:36:50.766Z</updated>
+  <updated>2025-05-19T20:48:39.998Z</updated>
   <id>https://xten-no-brain.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xten-no-brain.github.io/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     <id>https://xten-no-brain.github.io/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</id>
     <published>2025-05-19T05:57:29.000Z</published>
-    <updated>2025-05-19T11:36:50.766Z</updated>
+    <updated>2025-05-19T20:48:39.998Z</updated>
     
     <content type="html"><![CDATA[<h1 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">准备写一个<span class="strong">**分布式键值存储**</span>的轮子项目，故补充一下分布式相关的知识</span><br><span class="line">先挖个坑</span><br><span class="line"><span class="strong">**https://github.com/Xten-no-brain/RaftKV**</span></span><br></pre></td></tr></table></figure><h2 id="CAP-定理"><a href="#CAP-定理" class="headerlink" title="CAP 定理"></a>CAP 定理</h2><br><br><h2 id="全局分布式ID"><a href="#全局分布式ID" class="headerlink" title="全局分布式ID"></a>全局分布式ID</h2>]]></content>
     
