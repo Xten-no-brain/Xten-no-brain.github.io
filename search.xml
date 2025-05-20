@@ -29,6 +29,56 @@
     
     
     <entry>
+      <title>网络</title>
+      <link href="/2025/04/27/%E7%BD%91%E7%BB%9C/"/>
+      <url>/2025/04/27/%E7%BD%91%E7%BB%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TCP相关"><a href="#TCP相关" class="headerlink" title="TCP相关"></a>TCP相关</h1><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><br><br><h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>面向对象特性</p><p>声明一个空类 A，对它做 sizeof 运算，得到的结果是多少</p><ul><li>如果还有一个空类 B 继承 A 呢？sizeof(B) 是多少</li></ul><p>sizeof(A) &#x3D; 1，C++ 规定每个对象必须具有唯一的地址，因此即使为空类，也至少分配 1 个字节</p><p>sizeof(B) &#x3D; 1，即使 B 继承自 A，<strong>EBO机制</strong>，Empty Base Optimization，当一个空类作为基类被继承时，编译器会将它优化掉，不占空间</p><p>指针和引用的区别</p><ul><li><p>引用对象会占内存吗</p><p>普通局部引用不占，虽说底层是指针，但由汇编实现</p><p>类成员引用占，因为需要持久绑定在某个对象上</p></li></ul><p>智能指针分类</p><ul><li>auto、unique、shared、weak</li><li>unique 和 shared 底层实现</li></ul><p>内存对齐 它的好处？</p><p>内存模型</p><ul><li>全局变量在哪个区？</li><li>const 在哪个区？</li></ul><p>栈溢出原因</p><p>用迭代器遍历删除元素，需要注意什么？</p><h1 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h1><p>进程和线程的区别</p><p>线程哪些资源是独有的</p><p>进程通信方式</p><p>进程 API</p><p>线程 API</p><p>线程同步方式</p><h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><p>四次挥手</p><ul><li>为什么要四次，三次行不行</li></ul><p>发送数据时，send() 返回成功后，数据一定发送出去了吗</p><p>Epoll</p><ul><li>ET、LT</li><li>ET 模式下读取时，如何保证数据全部读完了</li></ul><p>Linux 系统下网络问题排查</p><ul><li>客户端发送数据给服务器，结果没反应</li></ul><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>一组数，其中一个出现 1 次，其余的都出现两次，怎么找</p><ul><li>异或</li></ul><p>游戏相关，服务器 A 负责充值，服务器 B 负责发放道具，现在用户已经付款了，如何确定道具发送到用户手上，并且不多发也不少发？</p><ul><li>幂等 + 数据一致性</li></ul><h1 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h1><h2 id="部门"><a href="#部门" class="headerlink" title="部门"></a>部门</h2><p>场景题</p><ul><li>自己了解，玩游戏多想想类似问题</li></ul><p>业务</p><ul><li>放置类游戏后台开发</li></ul><p>技术栈</p><ul><li>C++ 做基架，Lua 写业务逻辑</li></ul><p>参与工作</p><ul><li>培训，然后给一些实际开发的需求，自己实现逻辑</li></ul><p>数据库选型</p><ul><li>MySQL、Redis、MongDB</li></ul><h2 id="个人"><a href="#个人" class="headerlink" title="个人"></a>个人</h2><p>提升</p><ul><li>C++ 很扎实，加强网络、操作系统这些基础知识的广度和深度</li></ul><p>简历</p><ul><li>没问题</li></ul><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>几轮技术面</p><ul><li>还有一轮技术面 + HR 面</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统</title>
+      <link href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Redis</title>
       <link href="/2025/04/27/Redis/"/>
       <url>/2025/04/27/Redis/</url>
