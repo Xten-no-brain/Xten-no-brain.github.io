@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Redis | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Redis 为什么快需要后续补充   内存存储数据都保存在内存中，访问速度极快     单线程架构单线程事件循环模型，避免锁竞争、上下文切换的开销 注：持久化机制和集群通信是多线程     高效数据结构哈希表、压缩列表、跳表等 大多操作时间复杂度都是 O(1) 或 O(logN)     零拷贝机制Redis 在发送响应给客户端时，利用了操作系统的 writev 等系统调用，直接将多个缓冲区内容合">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Redis | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Redis 为什么快需要后续补充 内存存储数据都保存在内存中，访问速度极快   单线程架构单线程事件循环模型，避免锁竞争、上下文切换的开销 注：持久化机制和集群通信是多线程   高效数据结构哈希表、压缩列表、跳表等 大多操作时间复杂度都是 O(1) 或 O(logN)   零拷贝机制Redis 在发送响应给客户端时，利用了操作系统的 writev 等系统调用，直接将多个缓冲区内容合并输出，避免不必">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="https://xten-no-brain.github.io/2025/04/27/Redis/index.html">
 <meta property="og:site_name" content="Xten&#39;s Blog">
-<meta property="og:description" content="Redis 为什么快需要后续补充   内存存储数据都保存在内存中，访问速度极快     单线程架构单线程事件循环模型，避免锁竞争、上下文切换的开销 注：持久化机制和集群通信是多线程     高效数据结构哈希表、压缩列表、跳表等 大多操作时间复杂度都是 O(1) 或 O(logN)     零拷贝机制Redis 在发送响应给客户端时，利用了操作系统的 writev 等系统调用，直接将多个缓冲区内容合">
+<meta property="og:description" content="Redis 为什么快需要后续补充 内存存储数据都保存在内存中，访问速度极快   单线程架构单线程事件循环模型，避免锁竞争、上下文切换的开销 注：持久化机制和集群通信是多线程   高效数据结构哈希表、压缩列表、跳表等 大多操作时间复杂度都是 O(1) 或 O(logN)   零拷贝机制Redis 在发送响应给客户端时，利用了操作系统的 writev 等系统调用，直接将多个缓冲区内容合并输出，避免不必">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xten-no-brain.github.io/img/Avatar.jpg">
 <meta property="article:published_time" content="2025-04-27T13:59:44.000Z">
-<meta property="article:modified_time" content="2025-05-19T23:40:53.263Z">
+<meta property="article:modified_time" content="2025-05-20T15:14:09.585Z">
 <meta property="article:author" content="Xten">
 <meta property="article:tag" content="开发组件">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://xten-no-brain.github.io/2025/04/27/Redis/",
   "image": "https://xten-no-brain.github.io/img/Avatar.jpg",
   "datePublished": "2025-04-27T13:59:44.000Z",
-  "dateModified": "2025-05-19T23:40:53.263Z",
+  "dateModified": "2025-05-20T15:14:09.585Z",
   "author": [
     {
       "@type": "Person",
@@ -169,44 +169,28 @@
   }
 </style>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Xten's Blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Redis</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Redis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-05-19T23:40:53.263Z" title="更新于 2025-05-20 07:40:53">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Redis-为什么快"><a href="#Redis-为什么快" class="headerlink" title="Redis 为什么快"></a>Redis 为什么快</h1><p><code>需要后续补充</code></p>
-<br>
-
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Redis</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Redis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-05-20T15:14:09.585Z" title="更新于 2025-05-20 23:14:09">2025-05-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Redis-为什么快"><a href="#Redis-为什么快" class="headerlink" title="Redis 为什么快"></a>Redis 为什么快</h1><p><code>需要后续补充</code></p>
 <h2 id="内存存储"><a href="#内存存储" class="headerlink" title="内存存储"></a>内存存储</h2><p>数据都保存在内存中，访问速度极快</p>
-<br>
-
 <br>
 
 <h2 id="单线程架构"><a href="#单线程架构" class="headerlink" title="单线程架构"></a>单线程架构</h2><p>单线程<strong>事件循环</strong>模型，避免锁竞争、上下文切换的开销</p>
 <p><strong>注</strong>：<strong>持久化机制</strong>和<strong>集群通信</strong>是多线程</p>
 <br>
 
-<br>
-
 <h2 id="高效数据结构"><a href="#高效数据结构" class="headerlink" title="高效数据结构"></a>高效数据结构</h2><p>哈希表、压缩列表、跳表等</p>
 <p>大多操作时间复杂度都是 O(1) 或 O(logN)</p>
-<br>
-
 <br>
 
 <h2 id="零拷贝机制"><a href="#零拷贝机制" class="headerlink" title="零拷贝机制"></a>零拷贝机制</h2><p>Redis 在发送响应给客户端时，利用了操作系统的 <strong>writev</strong> 等系统调用，直接将多个缓冲区内容合并输出，<strong>避免不必要的数据拷贝</strong></p>
 <br>
 
-<br>
-
 <h2 id="高效-I-O-模型"><a href="#高效-I-O-模型" class="headerlink" title="高效 I&#x2F;O 模型"></a>高效 I&#x2F;O 模型</h2><p>使用 I&#x2F;O 多路复用中的 epoll 模型，高并发场景下的效率最高</p>
-<br>
-
 <br>
 
 <h2 id="协议简单"><a href="#协议简单" class="headerlink" title="协议简单"></a>协议简单</h2><p>采用<strong>自定义的 RESP 协议</strong>，格式简单、解析快，在客户端与服务器间的<strong>通信开销小</strong></p>
 <br>
 
-<br>
-
 <h2 id="异步持久化"><a href="#异步持久化" class="headerlink" title="异步持久化"></a>异步持久化</h2><p>持久化交由后台线程，保证主线程的性能</p>
-<br>
-
 <br>
 
 <h2 id="集群和分布式支持"><a href="#集群和分布式支持" class="headerlink" title="集群和分布式支持"></a>集群和分布式支持</h2><p>可水平扩展读写性能</p>
@@ -222,11 +206,7 @@
 <li>如果哈希类型元素小于 512 个，所有值小于 64 字节，以<strong>压缩列表</strong>作为数据结构</li>
 <li>不满足上述条件则以<strong>哈希表</strong>作为数据结构</li>
 </ul>
-<br>
-
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p><strong>key, filed, value</strong> 结构与对象的<strong>对象id，属性，值</strong>结构相似</p>
-<br>
-
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
 <li>存储一个哈希表 key 的键值</li>
 </ul>
@@ -239,18 +219,12 @@
 <p>HDEL key field [field …]</p>
 </li>
 </ul>
-<br>
-
 <h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>缓存对象</strong></p>
 <p>例：HMSET uid:1 name X age 15，存储一个哈希表 uid:1 的键值</p>
 <p><strong>购物车</strong></p>
 <br>
 
-<br>
-
 <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="数据结构-1"><a href="#数据结构-1" class="headerlink" title="数据结构"></a>数据结构</h3><p>int 和 SDS（简单动态字符串）</p>
-<br>
-
 <h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>缓存对象</strong></p>
 <p><strong>常规计数</strong></p>
 <p><strong>分布式锁</strong></p>
@@ -258,50 +232,26 @@
 <p><strong>共享 session</strong></p>
 <br>
 
-<br>
-
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><h3 id="数据结构-2"><a href="#数据结构-2" class="headerlink" title="数据结构"></a>数据结构</h3><p>双向链表或压缩列表</p>
-<br>
-
 <h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><p>FIFO 顺序对数据进行存取操作</p>
-<br>
-
 <h3 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>消息队列</strong></p>
 <br>
 
-<br>
-
 <h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><h3 id="数据结构-3"><a href="#数据结构-3" class="headerlink" title="数据结构"></a>数据结构</h3><p>哈希表或整数集合</p>
-<br>
-
 <h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><p>支持取差集、并集和交集操作</p>
-<br>
-
 <h3 id="应用场景-3"><a href="#应用场景-3" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>点赞</strong></p>
 <p><strong>共同关注</strong></p>
 <br>
 
-<br>
-
 <h2 id="Zset"><a href="#Zset" class="headerlink" title="Zset"></a>Zset</h2><h3 id="数据结构-4"><a href="#数据结构-4" class="headerlink" title="数据结构"></a>数据结构</h3><p>压缩列表或跳表</p>
-<br>
-
 <h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>可以根据元素的权重进行排序</p>
-<br>
-
 <h3 id="应用场景-4"><a href="#应用场景-4" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>排行榜</strong></p>
 <br>
 
-<br>
-
 <h2 id="Bitmap"><a href="#Bitmap" class="headerlink" title="Bitmap"></a>Bitmap</h2><h3 id="数据结构-5"><a href="#数据结构-5" class="headerlink" title="数据结构"></a>数据结构</h3><p>string作为底层结构</p>
-<br>
-
 <h3 id="应用场景-5"><a href="#应用场景-5" class="headerlink" title="应用场景"></a>应用场景</h3><p>适用于<strong>二值状态统计</strong>场景，海量数据下有效节省空间</p>
 <p><strong>签到统计</strong></p>
 <p><strong>判断用户登录态</strong></p>
-<br>
-
 <br>
 
 <br>
@@ -452,8 +402,6 @@
 <p>应用一次读取了大量数据，但这些数据只被读取这一次，也会将其保存在 Redis 中很长时间</p>
 <br>
 
-<br>
-
 <h2 id="LFU"><a href="#LFU" class="headerlink" title="LFU"></a>LFU</h2><p>Least Frequently Used，即淘汰<strong>最不经常使用</strong>数据</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TODO</span><br><span class="line">还没用过LFU，后续补充</span><br></pre></td></tr></table></figure>
 
@@ -561,8 +509,6 @@
 </ul>
 <br>
 
-<br>
-
 <h3 id="击穿"><a href="#击穿" class="headerlink" title="击穿"></a>击穿</h3><p>某个热点数据在缓存中过期了，此时大量请求访问这个数据，导致这些请求都击穿缓存直接访问数据库，可能使数据库过载</p>
 <p>解决方案：</p>
 <ul>
@@ -574,8 +520,6 @@
 <p>后台异步更新缓存；或在热点数据将过期前，通知线程更新缓存并重设过期时间</p>
 </li>
 </ul>
-<br>
-
 <br>
 
 <h3 id="穿透"><a href="#穿透" class="headerlink" title="穿透"></a>穿透</h3><p>查询一个根本不存在的数据，导致每次查询都要去数据库查询，从而使得缓存形同虚设</p>
