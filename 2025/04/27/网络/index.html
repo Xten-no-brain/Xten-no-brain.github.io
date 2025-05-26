@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络 | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TCP相关三次握手    四次挥手为什么不能三次？网络 I&#x2F;O 模型I&#x2F;O 多路复用EpollET 模式下如何保证数据全部读完？ ET 模式下，内核只通知一次，所以你必须循环读取直到读不到数据为止，即读取返回 EAGAIN 或 EWOULDBLOCK 123456789101112131415161718192021222324while (true)&#123;    n &#x3D;">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络 | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TCP相关三次握手    四次挥手为什么不能三次？      网络 I&#x2F;O 模型I&#x2F;O 多路复用EpollET 模式下如何保证数据全部读完？ ET 模式下，内核只通知一次，所以你必须循环读取直到读不到数据为止，即读取返回 EAGAIN 或 EWOULDBLOCK 123456789101112131415161718192021222324while (true)&#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络">
 <meta property="og:url" content="https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Xten&#39;s Blog">
-<meta property="og:description" content="TCP相关三次握手    四次挥手为什么不能三次？网络 I&#x2F;O 模型I&#x2F;O 多路复用EpollET 模式下如何保证数据全部读完？ ET 模式下，内核只通知一次，所以你必须循环读取直到读不到数据为止，即读取返回 EAGAIN 或 EWOULDBLOCK 123456789101112131415161718192021222324while (true)&#123;    n &#x3D;">
+<meta property="og:description" content="TCP相关三次握手    四次挥手为什么不能三次？      网络 I&#x2F;O 模型I&#x2F;O 多路复用EpollET 模式下如何保证数据全部读完？ ET 模式下，内核只通知一次，所以你必须循环读取直到读不到数据为止，即读取返回 EAGAIN 或 EWOULDBLOCK 123456789101112131415161718192021222324while (true)&#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xten-no-brain.github.io/img/Avatar.jpg">
 <meta property="article:published_time" content="2025-04-27T14:49:19.000Z">
-<meta property="article:modified_time" content="2025-05-26T09:51:08.327Z">
+<meta property="article:modified_time" content="2025-05-26T09:52:03.062Z">
 <meta property="article:author" content="Xten">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/",
   "image": "https://xten-no-brain.github.io/img/Avatar.jpg",
   "datePublished": "2025-04-27T14:49:19.000Z",
-  "dateModified": "2025-05-26T09:51:08.327Z",
+  "dateModified": "2025-05-26T09:52:03.062Z",
   "author": [
     {
       "@type": "Person",
@@ -169,15 +169,25 @@
   }
 </style>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Xten's Blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">网络</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-05-26T09:51:08.327Z" title="更新于 2025-05-26 17:51:08">2025-05-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">538</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="TCP相关"><a href="#TCP相关" class="headerlink" title="TCP相关"></a>TCP相关</h1><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><br>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">网络</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-05-26T09:52:03.062Z" title="更新于 2025-05-26 17:52:03">2025-05-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">538</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="TCP相关"><a href="#TCP相关" class="headerlink" title="TCP相关"></a>TCP相关</h1><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><br>
 
 <br>
 
-<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><h2 id="为什么不能三次？"><a href="#为什么不能三次？" class="headerlink" title="为什么不能三次？"></a>为什么不能三次？</h2><h1 id="网络-I-O-模型"><a href="#网络-I-O-模型" class="headerlink" title="网络 I&#x2F;O 模型"></a>网络 I&#x2F;O 模型</h1><h2 id="I-O-多路复用"><a href="#I-O-多路复用" class="headerlink" title="I&#x2F;O 多路复用"></a>I&#x2F;O 多路复用</h2><h3 id="Epoll"><a href="#Epoll" class="headerlink" title="Epoll"></a>Epoll</h3><p><strong>ET 模式下如何保证数据全部读完？</strong></p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><h2 id="为什么不能三次？"><a href="#为什么不能三次？" class="headerlink" title="为什么不能三次？"></a>为什么不能三次？</h2><br>
+
+<br>
+
+<br>
+
+<h1 id="网络-I-O-模型"><a href="#网络-I-O-模型" class="headerlink" title="网络 I&#x2F;O 模型"></a>网络 I&#x2F;O 模型</h1><h2 id="I-O-多路复用"><a href="#I-O-多路复用" class="headerlink" title="I&#x2F;O 多路复用"></a>I&#x2F;O 多路复用</h2><h3 id="Epoll"><a href="#Epoll" class="headerlink" title="Epoll"></a>Epoll</h3><p><strong>ET 模式下如何保证数据全部读完？</strong></p>
 <p>ET 模式下，内核只通知一次，所以你必须<strong>循环读取直到读不到数据为止</strong>，即读取返回 <code>EAGAIN</code> 或 <code>EWOULDBLOCK</code></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    n = read(fd, buf, <span class="keyword">sizeof</span>(buf));</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (errno == EAGAIN || errno == EWOULDBLOCK)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 数据已全部读取完</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 发生错误，处理错误</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 对方关闭连接</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 处理读取到的数据</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<br>
 
+<br>
+
+<br>
 
 <h1 id="网络问题排查"><a href="#网络问题排查" class="headerlink" title="网络问题排查"></a>网络问题排查</h1><h2 id="客户端发送数据给服务器，服务器没反应"><a href="#客户端发送数据给服务器，服务器没反应" class="headerlink" title="客户端发送数据给服务器，服务器没反应"></a>客户端发送数据给服务器，服务器没反应</h2><p><strong>send() 返回成功后，数据一定发送出去了吗？</strong></p>
 <p><code>send()</code> 返回成功只代表数据已成功复制到内核的发送缓冲区，不代表数据已经真正通过网络发送或对方已接收</p>
@@ -186,6 +196,12 @@
 <li>如果网络出现拥堵或对方不可达，数据可能延迟或丢失</li>
 <li>TCP 的可靠性体现在协议层的重传和确认机制，应用层仅能确认数据进入内核缓冲区</li>
 </ul>
+<br>
+
+<br>
+
+<br>
+
 <h1 id="网络攻击"><a href="#网络攻击" class="headerlink" title="网络攻击"></a>网络攻击</h1><h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><h2 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p>面向对象特性</p>
 <p>指针和引用的区别</p>
 <ul>
