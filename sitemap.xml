@@ -11,6 +11,60 @@
   </url>
   
   <url>
+    <loc>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/06/10/Linux/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/06/10/Git/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/06/10/CMake/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/05/20/C++%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2025-06-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2025-06-09</lastmod>
@@ -29,34 +83,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
-    
-    <lastmod>2025-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/2025/05/20/C++%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</loc>
-    
-    <lastmod>2025-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xten-no-brain.github.io/contact/index.html</loc>
-    
-    <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -114,6 +141,13 @@
   
   <url>
     <loc>https://xten-no-brain.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
