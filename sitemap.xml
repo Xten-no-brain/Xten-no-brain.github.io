@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/06/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://xten-no-brain.github.io/2025/06/10/Linux/</loc>
+    
+    <lastmod>2025-06-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/04/27/Redis/</loc>
+    
+    <lastmod>2025-06-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
     
     <lastmod>2025-06-10</lastmod>
     
@@ -29,27 +47,9 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
-    
-    <lastmod>2025-06-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2025-06-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/2025/06/10/Linux/</loc>
-    
-    <lastmod>2025-06-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -66,15 +66,6 @@
   
   <url>
     <loc>https://xten-no-brain.github.io/2025/05/20/C++/</loc>
-    
-    <lastmod>2025-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/Redis/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -150,13 +141,6 @@
   
   <url>
     <loc>https://xten-no-brain.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/tags/%E8%A1%A5%E5%85%85/</loc>
     <lastmod>2025-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
