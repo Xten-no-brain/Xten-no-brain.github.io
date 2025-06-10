@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/06/10/source/posts/</loc>
-    
-    <lastmod>2025-06-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xten-no-brain.github.io/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html</loc>
-    
-    <lastmod>2025-06-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xten-no-brain.github.io/2025/06/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2025-06-10</lastmod>
@@ -29,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2025-06-10</lastmod>
     
@@ -38,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/MySQL.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</loc>
     
     <lastmod>2025-06-10</lastmod>
     
@@ -47,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/%E7%BD%91%E7%BB%9C.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
     
     <lastmod>2025-06-10</lastmod>
     
@@ -56,7 +38,16 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/Linux.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/%E7%BD%91%E7%BB%9C/</loc>
+    
+    <lastmod>2025-06-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/2025/06/10/Linux/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -65,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/Git.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/06/10/Git/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -74,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/C++.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/05/20/C++/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -83,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/Redis.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/Redis/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -92,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/posts/CMake.html</loc>
+    <loc>https://xten-no-brain.github.io/2025/06/10/CMake/</loc>
     
     <lastmod>2025-06-09</lastmod>
     
@@ -135,6 +126,48 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E8%A1%A5%E5%85%85/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xten-no-brain.github.io/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
