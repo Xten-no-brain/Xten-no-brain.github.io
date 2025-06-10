@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xten&#39;s Blog</title>
+  
+  
+  <link href="https://xten-no-brain.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://xten-no-brain.github.io/"/>
+  <updated>2025-06-10T06:23:56.147Z</updated>
+  <id>https://xten-no-brain.github.io/</id>
+  
+  <author>
+    <name>Xten</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式</title>
+    <link href="https://xten-no-brain.github.io/2025/06/10/source/posts/"/>
+    <id>https://xten-no-brain.github.io/2025/06/10/source/posts/</id>
+    <published>2025-06-10T06:23:56.000Z</published>
+    <updated>2025-06-10T06:23:56.147Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式</title>
+    <link href="https://xten-no-brain.github.io/2025/06/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://xten-no-brain.github.io/2025/06/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <published>2025-06-10T06:16:46.000Z</published>
+    <updated>2025-06-10T06:16:46.908Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
