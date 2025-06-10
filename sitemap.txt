@@ -1,12 +1,12 @@
+https://xten-no-brain.github.io/posts/MySQL.html
+https://xten-no-brain.github.io/posts/%E7%BD%91%E7%BB%9C.html
 https://xten-no-brain.github.io/posts/Linux.html
 https://xten-no-brain.github.io/posts/Git.html
 https://xten-no-brain.github.io/posts/C++.html
 https://xten-no-brain.github.io/posts/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1.html
 https://xten-no-brain.github.io/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html
 https://xten-no-brain.github.io/posts/Redis.html
-https://xten-no-brain.github.io/posts/MySQL.html
 https://xten-no-brain.github.io/posts/CMake.html
-https://xten-no-brain.github.io/posts/%E7%BD%91%E7%BB%9C.html
 https://xten-no-brain.github.io/contact/index.html
 https://xten-no-brain.github.io/tags/index.html
 https://xten-no-brain.github.io/categories/index.html
