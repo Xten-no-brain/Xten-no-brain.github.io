@@ -36,19 +36,15 @@
     <link href="https://xten-no-brain.github.io/2025/06/10/Linux/"/>
     <id>https://xten-no-brain.github.io/2025/06/10/Linux/</id>
     <published>2025-06-09T17:29:19.000Z</published>
-    <updated>2025-06-15T12:35:36.505Z</updated>
+    <updated>2025-07-16T03:16:29.937Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>awk</p><p>sed</p><p>grep</p><p>coredump</p><p>netstat</p><p>tcpdump</p><p>ipcs</p><p>ipcrm</p><h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p><strong>查看 IP 地址</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure><p><strong>查看端口号</strong></p><p><strong>全盘查找文件</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x@x-VMware-Virtual-Platform:~$ sudo find / -name &quot;文件名&quot; 2&gt;/dev/null</span><br></pre></td></tr></table></figure><p>awk</p><p>sed</p><p>grep</p><p>coredump</p><p>netstat</p><p>tcpdump</p><p>ipcs</p><p>ipcrm</p><h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h1&gt;&lt;p&gt;awk&lt;/p&gt;
-&lt;p&gt;sed&lt;/p&gt;
-&lt;p&gt;grep&lt;/p&gt;
-&lt;p&gt;coredump&lt;/p&gt;
-&lt;p&gt;netstat&lt;/p&gt;
-&lt;p&gt;tcpdu</summary>
+    <summary type="html">&lt;h1 id=&quot;命令&quot;&gt;&lt;a href=&quot;#命令&quot; class=&quot;headerlink&quot; title=&quot;命令&quot;&gt;&lt;/a&gt;命令&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;查看 IP 地址&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;tab</summary>
       
     
     

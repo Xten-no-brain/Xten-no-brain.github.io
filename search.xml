@@ -27,7 +27,7 @@
       <link href="/2025/06/10/Linux/"/>
       <url>/2025/06/10/Linux/</url>
       
-        <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>awk</p><p>sed</p><p>grep</p><p>coredump</p><p>netstat</p><p>tcpdump</p><p>ipcs</p><p>ipcrm</p><h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p><strong>查看 IP 地址</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure><p><strong>查看端口号</strong></p><p><strong>全盘查找文件</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x@x-VMware-Virtual-Platform:~$ sudo find / -name &quot;文件名&quot; 2&gt;/dev/null</span><br></pre></td></tr></table></figure><p>awk</p><p>sed</p><p>grep</p><p>coredump</p><p>netstat</p><p>tcpdump</p><p>ipcs</p><p>ipcrm</p><h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1>]]></content>
       
       
       
