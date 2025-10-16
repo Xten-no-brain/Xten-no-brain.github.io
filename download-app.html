@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载心迹 App - 记录每日心情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .version-info {
+            background: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .version-info p {
+            color: #555;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .version-info strong {
+            color: #333;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .secondary-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .tips {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 30px;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .tips h3 {
+            color: #856404;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .tips ol {
+            color: #856404;
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .tips li {
+            margin: 5px 0;
+        }
+
+        .hash-info {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #495057;
+            text-align: left;
+            word-break: break-all;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-icon">📔</div>
+        <h1>心迹 App</h1>
+        <p class="subtitle">记录每日心情，AI 智能分析</p>
+
+        <div class="version-info">
+            <p><strong>文件大小：</strong>约 15 MB</p>
+            <p><strong>支持系统：</strong>Android 6.0 及以上</p>
+        </div>
+
+        <!-- 自动指向最新版本 -->
+        <a href="https://github.com/Xten-no-brain/Xten-no-brain.github.io/releases/latest/download/xinji.apk" 
+           class="download-btn" 
+           id="downloadBtn">
+            📱 立即下载 Android 版
+        </a>
+
+        <a href="https://github.com/Xten-no-brain/Xten-no-brain.github.io" 
+           class="secondary-btn" 
+           target="_blank">
+            ⭐ 查看项目源码
+        </a>
+
+        <div class="tips">
+            <h3>📖 安装说明</h3>
+            <ol>
+                <li>下载完成后，点击打开 APK 文件</li>
+                <li>如果提示"不允许安装未知来源"，请进入设置</li>
+                <li>找到"允许此来源"开关并打开</li>
+                <li>返回继续安装即可</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        // 检测设备类型
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            if (!isAndroid) {
+                // 非Android设备，显示提示
+                if (confirm('检测到您不是 Android 设备。\n\n是否继续下载 APK 文件？')) {
+                    return true;
+                } else {
+                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
