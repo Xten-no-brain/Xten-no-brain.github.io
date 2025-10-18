@@ -1,5 +1,5 @@
 ---
-title: 纠错或催更，请发消息到下列邮箱
+title: 纠错或催更，请联系下列邮箱
 hide_title: true  # 隐藏默认标题
 comments: true
 ---

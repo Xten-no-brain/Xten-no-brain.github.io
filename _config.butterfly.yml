@@ -12,11 +12,19 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  文章分类: 
-    MySQL: /categories/MySQL/ || fas fa-database
-    Redis: /categories/Redis/ || fas fa-bolt
-    网络: /categories/网络/ || fas fa-network-wired
-    操作系统: /categories/操作系统/ || fas fa-desktop
+  心迹App: /xinji.html || fas fa-mobile-alt
+  文章分类:
+    C++: /2025/05/20/C++/ || fas fa-code
+    Linux: /2025/06/10/Linux/ || fab fa-linux
+    Git: /2025/06/10/Git/ || fab fa-git
+    CMake: /2025/06/10/CMake/ || fas fa-tools
+    MySQL: /2025/04/27/MySQL/ || fas fa-database
+    Redis: /2025/04/27/Redis/ || fas fa-bolt
+    操作系统: /2025/04/27/操作系统/ || fas fa-desktop
+    网络: /2025/04/27/网络/ || fas fa-network-wired
+    系统设计: /2025/05/19/系统设计/ || fas fa-project-diagram
+    设计模式: /2025/06/26/设计模式/ || fas fa-palette
+
 
 
 # --------------------------------------
@@ -48,7 +56,7 @@ code_blocks:
 #   icon: 链接 || 描述 || 顏色
 social:
   fab fa-github: https://github.com/Xten-no-brain || GitHub || #24292e
-  fas fa-envelope: /contact/ || 邮箱 || #4285f4
+  # fas fa-envelope: /contact/ || 邮箱 || #4285f4
 
 # 添加样式覆盖
 inject:
@@ -68,8 +76,8 @@ inject:
 # 图片设置
 # --------------------------------------
 
-# 网站的 favicon 图标
-favicon: 
+# 标签页左侧图标
+favicon: /img/Mars.jpg
 
 # 头像设置
 avatar:
@@ -80,95 +88,95 @@ avatar:
 # 禁用所有顶部图片
 disable_top_img: false
 
-# 如果页面未設置橫幅，則显示默认的橫幅图片
+# 如果页面未设置橫幅，则显示默认的橫幅图片
 default_top_img: # /img/Top.jpg
 
-# 主頁的橫幅圖片
+# 主页的橫幅图片
 index_img:
 
-# 歸檔頁的橫幅圖片
+# 归档页的橫幅图片
 archive_img:
 
-# 注意: 是標籤頁（單個標籤），不是標籤頁面（所有標籤）
+# 注意: 是标签页（单个标签），不是标签页面（所有标签）
 tag_img:
 
-# 標籤頁的橫幅圖片，可以為每個標籤設置橫幅圖片
+# 标签页的橫幅图片，可以为每个标签设置橫幅图片
 # 格式:
-#  - 標籤名: 圖片鏈接
+#  - 标签名: 图片链接
 tag_per_img:
 
-# 注意: 是分類頁（單個分類），不是分類頁面（所有分類）
+# 注意: 是分类页（单个分类），不是分类页面（所有分类）
 category_img:
 
-# 分類頁的橫幅圖片，可以為每個分類設置橫幅圖片
+# 分类页的橫幅图片，可以为每个分类设置橫幅图片
 # 格式:
-#  - 分類名: 圖片鏈接
+#  - 分类名: 图片链接
 category_per_img:
 
 # 页脚的背景图片
 footer_img: true
 
-# 網站背景
-# 可以設置為顏色或圖片
-# 圖片格式: url(http://xxxxxx.com/xxx.jpg)
+# 网站背景
+# 可以设置为颜色或图片
+# 图片格式: url(http://xxxxxx.com/xxx.jpg)
 background:
 
-# 封面設置
+# 封面设置
 cover:
   # 是否禁用封面
-  index_enable: true
+  index_enable: false
   aside_enable: true
-  archives_enable: true
-  # 主頁封面的位置
-  # 選擇: left/right/both
+  archives_enable: false
+  # 主页封面的位置
+  # 选择: left/right/both
   position: both
-  # 當未設置封面時，顯示默認封面
+  # 当未设置封面时，显示默认封面
   default_cover:
-    # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
+    
 
-# 替換損壞的圖片
+# 替换损坏的图片
 error_img:
-  # 友鏈頁面的錯誤圖片
+  # 友连页面的错误图片
   flink: 
-  # 文章頁面的錯誤圖片
+  # 文章页面的错误图片
   post_page: 
 
-# 簡單的 404 頁面
+# 简单的 404 页面
 error_404:
-  # 是否啟用 404 頁面
+  # 是否启用 404 页面
   enable: false
-  # 404 頁面的副標題
+  # 404 页面的副标题
   subtitle: 'Page Not Found'
-  # 404 頁面的卡片背景圖片
+  # 404 页面的卡片背景图片
   background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
 
-# 文章元數據設置
+# 文章元数据设置
 post_meta:
-  # 主頁頁面
+  # 主页页面
   page:
-    # 日期類型: created / updated / both
+    # 日期类型: created / updated / both
     date_type: created
     # 日期格式: date / relative
     date_format: date
-    # 是否顯示分類
-    categories: true
-    # 是否顯示標籤
-    tags: false
-    # 是否顯示文字標籤
-    label: true
-  # 文章頁面
-  post:
-    # 元數據位置: left / center
-    position: left
-    # 日期類型: created / updated / both
-    date_type: both
-    # 日期格式: date / relative
-    date_format: date
-    # 是否顯示分類
-    categories: true
-    # 是否顯示標籤在·
+    # 是否显示分类
+    categories: false
+    # 是否显示标签
     tags: true
-    # 是否顯示文字標籤
+    # 是否显示文字标签
+    label: false
+  # 文章页面
+  post:
+    # 元数据位置: left / center
+    position: left
+    # 日期类型: created / updated / both
+    date_type: updated
+    # 日期格式: date / relative
+    date_format: ralative
+    # 是否显示分类
+    categories: false
+    # 是否显示标签
+    tags: true
+    # 是否显示文字标签
     label: true
 
 # --------------------------------------
@@ -186,7 +194,7 @@ index_site_info_top:
 index_top_img_height: 
 
 # 首页标题设置
-title: '前路漫漫'
+title: 
 # 副标题设置
 subtitle: 
   # 是否启用副标题
@@ -207,12 +215,12 @@ subtitle:
   # 如果关闭打字机效果，副标题將仅显示 sub 的第一行内容
   sub:
     - 悟已往之不谏，知来者之可追
-    - 真正能阻挡前行的，只有伤病
+    - 一个人能走得多远不在于他顺境时能走多快，而在于他逆境时多久能找回曾经的自己
 
-# 首頁文章佈局
-# 1: 行佈局
+# 首页文章布局
+# 1: 行布局
 # 2: 列布局
-index_layout: 1
+index_layout: 2
 
 # 在首页显示文章简介
 # 1: 描述
@@ -231,7 +239,7 @@ index_post_content:
 toc:
   # 是否在文章中显示目录
   post: true
-  # 是否在頁面中显示目录
+  # 是否在页面中显示目录
   page: true
   # 是否显示目录编号
   number: true
@@ -244,7 +252,7 @@ toc:
 
 post_copyright:
   # 是否启用版权声明
-  enable: false
+  enable: true
   # 是否进行文章 URL 解码
   decode: false
   # 作者链接
@@ -259,51 +267,41 @@ reward:
   # 是否啟用打赏
   enable: false
   # 打赏案例文本
-  text:
+  text: 来瓶可乐
   QR_code:
-    # - img: /img/wechat.jpg
-    #   link:
-    #   text: 微信
+    - img: /img/wechat.jpg
+      text: 微信
     # - img: /img/alipay.jpg
     #   link:
     #   text: 支付宝
 
-# 文章编辑
-# 轻松在线浏览和编辑博客源代码
-post_edit:
-  # 是否啟用在线编辑
-  enable: false
-  # url: https://github.com/用户名/倉庫名/edit/分支名/子目錄名/
-  # 例如: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url: https://xten-no-brain.github.io
-
-# 相關文章
+# 相关文章
 related_post:
-  # 是否顯示相關文章
+  # 是否显示相关文章
   enable: true
-  # 顯示的文章數量
+  # 显示的文章数量
   limit: 6
-  # 選擇: created / updated
+  # 选择: created / updated
   date_type: created
 
-# 選擇: 1 / 2 / false
-# 1: “下一篇文章”將鏈接到舊文章
-# 2: “下一篇文章”將鏈接到新文章
-# false: 禁用分頁
-post_pagination: 1
+# 上一篇、 下一篇
+# 1: “下一篇文章”将链接到旧文章
+# 2: “下一篇文章”将链接到新文章
+# false: 禁用分页
+post_pagination: false
 
-# 顯示文章過期通知
+# 显示文章过期通知
 noticeOutdate:
-  # 是否啟用過期通知
+  # 是否启用过期通知
   enable: false
-  # 樣式: simple / flat
+  # 样式: simple / flat
   style: flat
-  # 多少天后顯示通知
+  # 多少天后显示通知
   limit_day: 365
   # 位置: top / bottom
   position: top
-  message_prev: 已經過了
-  message_next: 天自上次更新，文章內容可能已過時。
+  message_prev: 以及过了
+  message_next: 天自上次更新，文章內容可能已过时。
 
 # --------------------------------------
 # 页脚设置
@@ -315,7 +313,7 @@ footer:
     # 网站创建年份
     since: 2025
   # 自定义文本
-  custom_text:
+  custom_text: 当机会到来，我是否已做好迎接它的准备？
   # 主题和框架的版权说明
   copyright: true
 
@@ -334,18 +332,21 @@ aside:
   mobile: true
   # 侧边栏位置：left / right
   position: left
+  
+  # 头像下方的信息
   display:
-    # 歸檔頁面是否顯示側邊欄
-    archive: true
-    # 標籤頁面是否顯示側邊欄
+    # 归档页面是否在侧边栏显示
+    archive: false
+    # 标签页面是否在侧边栏显示
     tag: true
-    # 分类页面是否显示侧边栏
-    category: true
+    # 分类页面是否在侧边栏显示
+    category: false
+    
   card_author:
     # 是否显示作者信息卡片
     enable: true
     # 作者描述
-    description: noob
+    description: Noob
     button:
       # 是否显示按鈕
       enable: false
@@ -355,11 +356,13 @@ aside:
       text: Follow Me
       # 按钮链接
       link: https://github.com/Xten-no-brain
+    
   card_announcement:
     # 是否显示公告卡片
     enable: false
     # 公告內容
-    content: 学习内容总结与记录
+    content: 最近太忙了，先鸽一阵子
+    
   card_recent_post:
     # 是否显示最近文章卡片
     enable: true
@@ -368,6 +371,7 @@ aside:
     # 排序方式：date / updated
     sort: updated
     sort_order:
+    
   card_newest_comments:
     # 是否显示最新评论卡片
     enable: false
@@ -378,6 +382,7 @@ aside:
     storage: 10
     # 是否显示头像
     avatar: true
+    
   card_categories:
     # 是否显示分类卡片
     enable: false
@@ -386,18 +391,20 @@ aside:
     # 选择：none / true / false
     expand: none
     sort_order:
+    
   card_tags:
     # 是否显示标签卡片
     enable: false
-    # 顯示標籤數量，0 表示顯示所有
+    # 显示标签数量，0 表示显示所有
     limit: 40
-    # 是否啟用顏色
+    # 是否启用颜色
     color: false
-    # 標籤排序方式：random/name/length
+    # 标签排序方式：random/name/length
     orderby: random
     # 排序順序：1 表示升序，-1 表示降序
     order: 1
     sort_order:
+    
   card_archives:
     # 是否显示归档卡片
     enable: false
@@ -410,20 +417,26 @@ aside:
     # 顯示歸檔數量，0 表示顯示所有
     limit: 8
     sort_order:
+    
   card_post_series:
-    # 是否顯示系列文章卡片
-    enable: true
-    # 標題顯示系列名稱
+    # 是否显示系列文章卡片
+    enable: false
+    # 标题显示系列名称
     series_title: false
     # 排序方式：title 或 date
     orderBy: 'date'
     # 排序順序：1 表示升序，-1 表示降序
     order: -1
+    
   card_webinfo:
     # 是否显示网址信息卡片
     enable: true
     # 是否显示文章数量
     post_count: true
+    # 是否显示标签
+    tag_count: false
+    # 是否显示分类
+    category_count: false
     # 是否显示最后更新日期
     last_push_date: true
     sort_order:
@@ -433,11 +446,14 @@ aside:
     runtime_date: 2025/04/26 00:00
 
 # --------------------------------------
-# 右下角按鈕設置
+# 右下角按钮设置
 # --------------------------------------
 
-# 右下角按鈕與底部的距離（默認單位：px）
+# 右下角按钮与底部的距离（默认单位：px）
 rightside_bottom:
+
+# 禁用旋转功能
+rightside_config_animation: false
 
 # 简繁转换设置
 translate:
@@ -457,58 +473,57 @@ translate:
 # 阅读模式
 readmode: true
 
-# 暗黑模式設置
+# 暗黑模式设置
 darkmode:
   # 是否启用暗黑模式
   enable: true
   # 切换暗黑/明亮模式的按鈕
   button: true
   # 是否自动切换暗黑/明亮模式
-  # autoChangeMode: 1  跟随系统设置，如果系統不支持暗黑模式，则在晚上 6 点到早上 6 点之间切换黑暗模式
+  # autoChangeMode: 1  跟随系统设置，如果系统不支持暗黑模式，则在晚上 6 点到早上 6 点之间切换黑暗模式
   # autoChangeMode: 2  在晚上 6 点到早上 6 点之间切换暗黑模式
   # autoChangeMode: false  不自动切换
-  autoChangeMode: false
-  # 设置明亮模式时间，值在 0 到 24 之间。如果未设置，默认值为 6 和 18
+  autoChangeMode: 2
   start:
   end:
 
 # 在返回顶部按钮中显示滚动百分比
 rightside_scroll_percent: false
 
-# 不要修改以下設置，除非你知道它們的工作原理
-# 選擇：readmode,translate,darkmode,hideAside,toc,chat,comment
-# 不要重複相同的值
+# 不要修改以下设置，除非你知道它们的工作原理
+# 选择：readmode, translate, darkmode, hideAside, toc, chat, comment
+# 不要重复相同的值
 rightside_item_order:
-  # 是否啟用右側項目順序
+  # 是否启用右侧项目顺序
   enable: false
-  # 隱藏的默認項目：readmode,translate,darkmode,hideAside
+  # 隐藏的默认项目：readmode,translate,darkmode,hideAside
   hide:
-  # 顯示的默認項目：toc,chat,comment
+  # 显示的默认项目：toc,chat,comment
   show:
 
 # --------------------------------------
-# 全局設置
+# 全局设置
 # --------------------------------------
 
-# 錨點設置
+# 锚点设置
 anchor:
-  # 滾動時，URL 將根據標題 ID 更新
+  # 滚动时，URL 将根据标题 ID 更新
   auto_update: false
-  # 點擊標題滾動並更新錨點
+  # 点击标题滚动并更新锚点
   click_to_scroll: false
 
-# 圖片標題
+# 图片标题
 photofigcaption: false
 
-# 複製設置
+# 复制设置
 copy:
-  # 是否啟用複製功能
+  # 是否启用复制功能
   enable: true
-  # 在複製的內容後添加版權信息
+  # 在复制的內容后添加版权信息
   copyright:
     enable: false
-    # 當複製字符數超過 limit_count 時添加版權信息
-    limit_count: 150
+    # 当复制字符数超过 limit_count 時添加版权信息
+    limit_count: 1
 
 # 需要安裝 hexo-wordcount 插件
 wordcount:
@@ -521,41 +536,41 @@ wordcount:
   # 在侧边栏网站信息中显示总字数
   total_wordcount: true
 
-# 不蒜子 PV / UV 統計
+# 不蒜子 PV / UV 统计
 busuanzi:
   # 访客数量
-  site_uv: false
+  site_uv: true
   # 浏览量
   site_pv: true
   # 页面浏览量
-  page_pv: true
+  page_pv: false
 
 # --------------------------------------
-# 數學公式設置
+# 数学公式设置
 # --------------------------------------
 
-# 關於 per_page
-# 如果設置為 true，將在每個頁面加載 mathjax/katex 腳本
-# 如果設置為 false，將根據你的設置加載 mathjax/katex 腳本（在頁面的 front-matter 中添加 'mathjax: true' 或者 'katex: true'）
+# 关于 per_page
+# 如果设置为 true，将在每个页面加载 mathjax/katex 脚本
+# 如果设置为 false，將根據你的設置加載 mathjax/katex 脚本（在页面的 front-matter 中添加 'mathjax: true' 或者 'katex: true'）
 math:
-  # 選擇：mathjax, katex
-  # 如果不需要數學公式，保持為空
+  # 选择：mathjax, katex
+  # 如果不需要数学公式，保持为空
   use:
   per_page: true
   hide_scrollbar: false
 
   mathjax:
-    # 啟用上下文菜單
+    # 启用上下文菜单
     enableMenu: true
-    # 選擇：all / ams / none，這控制是否對公式編號以及如何編號
+    # 选择：all / ams / none，这控制是否对公式编号以及如何编号
     tags: none
 
   katex:
-    # 啟用複製 KaTeX 公式
+    # 启用复制 KaTeX 公式
     copy_tex: false
 
 # --------------------------------------
-# 搜索設置
+# 搜索设置
 # --------------------------------------
 
 search:
@@ -569,12 +584,12 @@ search:
 #    CDN:  # 留空或填写有效 CDN 地址  
 
 # --------------------------------------
-# 分享系統
+# 分享设置
 # --------------------------------------
 
 share:
-  # 選擇：sharejs / addtoany
-  # 如果不需要分享功能，保持為空
+  # 选择：sharejs / addtoany
+  # 如果不需要分享功能，保持为空
   use: 
 
   # Share.js
@@ -588,7 +603,7 @@ share:
     item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
 
 # --------------------------------------
-# 评论系统
+# 评论设置
 # --------------------------------------
 
 comments:
@@ -622,19 +637,19 @@ waline:
 
 
 # --------------------------------------
-# 聊天服務配置
+# 聊天服务设置
 # --------------------------------------
 
 chat:
-  # 聊天服務類型，可選值：chatra/tidio/crisp，如果不需要聊天功能則留空
+  # 聊天服务类型，可选值：chatra/tidio/crisp，如果不需要聊天功能则留空
   use:
-  # 推薦使用聊天按鈕，會在網站右下角創建一個按鈕，並隱藏原始按鈕
+  # 推荐使用聊天按鈕，会在网站右下角创建一个按钮，并隐藏原始按鈕
   rightside_button: false
-  # 原始聊天按鈕在向上滾動時顯示，向下滾動時隱藏
+  # 原始聊天按钮在向上滚动时显示，向下滚动时隐藏
   button_hide_show: false
 
-# Chatra 聊天服務配置
-# 官方網站：https://chatra.io/
+# Chatra 聊天服务设置
+# 官方网站：https://chatra.io/
 chatra:
   # Chatra 服務 ID
   id:
@@ -672,7 +687,7 @@ cloudflare_analytics:
 microsoft_clarity:
 
 # --------------------------------------
-# 廣告配置
+# 广告设置
 # --------------------------------------
 
 # Google Adsense 廣告配置
@@ -698,7 +713,7 @@ ad:
   post:
 
 # --------------------------------------
-# 站點驗證配置
+# 站点验证设置
 # --------------------------------------
 
 site_verification:
@@ -750,57 +765,57 @@ site_verification:
 #   深色模式下的主題顏色
 #   meta_theme_color_dark: "#0d0d0d"
 
-# 分類和標籤頁面的用户界面設置
-# 選擇：index - 與主頁 UI 相同 / default - 與歸檔 UI 相同
-# 留空或設置為 index
+# 分类和标签页面的用户界面设置
+# 选择：index - 与主页 UI 相同 / default - 与归档 UI 相同
+# 留空或设置为 index
 category_ui:
-tag_ui:
+tag_ui: default
 
-# 拉伸行使每行寬度相等
+# 拉伸行使每行宽度相等
 text_align_justify: false
 
-# 為頁眉和頁腳添加遮罩
+# 为页眉和页脚添加遮罩
 mask:
   header: true
   footer: true
 
-# 加載動畫
+# 加载动画
 preloader:
-  # 是否啟用加載動畫
+  # 是否启用加载动画
   enable: false
-  # 資源
-  # 1. 全屏加載
-  # 2. 進度條
+  # 资源
+  # 1. 全屏加载
+  # 2. 进度条
   source: 1
-  # pace 主題 (參見 https://codebyzach.github.io/pace/)
+  # pace 主题 (参见 https://codebyzach.github.io/pace/)
   pace_css_url:
 
-# 頁面過渡效果
+# 页面过度效果
 enter_transitions: true
 
-# 默認顯示模式 - light (默認) / dark
+# 默认显示模式 - light (默认) / dark
 display_mode: light
 
 # 美化文章內容的配置
 beautify:
-  # 是否啟用美化
+  # 是否启用美化
   enable: false
-  # 指定美化的範圍 (site 或 post)
+  # 指定美化的范围 (site 或 post)
   field: post
-  # 指定標題前綴圖標，如 '\f0c1'
+  # 指定标题前缀图标，如 '\f0c1'
   title-prefix-icon:
-  # 指定標題前綴圖標的顏色，如 '#F47466'
+  # 指定标题前缀图标的颜色，如 '#F47466'
   title-prefix-icon-color:
 
-# 全局字體設置
-# 除非您知道它們的工作原理，否則不要修改以下設置
+# 全局字体设置
+# 除非您知道它们的工作原理，否则不要修改以下设置
 font:
   global-font-size:
   code-font-size:
   font-family:
   code-font-family:
 
-# 網站標題和副標題的字體設置
+# 网站标题和副标题的字体设置
 blog_title_font:
   font_link:
   font-family:
