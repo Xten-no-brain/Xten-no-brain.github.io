@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/Redis/</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
     
     <lastmod>2025-10-18</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/2025/04/27/MySQL/</loc>
+    <loc>https://xten-no-brain.github.io/2025/04/27/Redis/</loc>
     
     <lastmod>2025-10-18</lastmod>
     
@@ -90,14 +90,14 @@
 
   
   <url>
-    <loc>https://xten-no-brain.github.io/categories/Redis/</loc>
+    <loc>https://xten-no-brain.github.io/categories/MySQL/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xten-no-brain.github.io/categories/MySQL/</loc>
+    <loc>https://xten-no-brain.github.io/categories/Redis/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
