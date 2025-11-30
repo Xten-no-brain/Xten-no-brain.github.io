@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="命令系统 查看磁盘容量  1df -h &#x2F;  -  网络 查看 IP 地址  1ip a   查看端口号   列出所有监听状态的端口 1sudo ss -tuln   查看特定端口  1sudo ss -tuln | grep 端口号   查看路由  1ip route show   全盘查找文件  1sudo find &#x2F; -name &quot;文件名&quot; 2&gt;&#x2F;dev&#x2F;null">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux | Xten's Blog</title><meta name="author" content="Xten"><meta name="copyright" content="Xten"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="命令系统 查看磁盘容量  1df -h &#x2F;   重启  1sudo reboot   查看 APP 等待时间  1gsettings get org.gnome.mutter check-alive-timeout   设置 APP 等待时间  1gsettings set org.gnome.mutter check-alive-timeout 时长 # 单位为毫秒   强制关闭应用  12pg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux">
 <meta property="og:url" content="https://xten-no-brain.github.io/2025/06/10/Linux/index.html">
 <meta property="og:site_name" content="Xten&#39;s Blog">
-<meta property="og:description" content="命令系统 查看磁盘容量  1df -h &#x2F;  -  网络 查看 IP 地址  1ip a   查看端口号   列出所有监听状态的端口 1sudo ss -tuln   查看特定端口  1sudo ss -tuln | grep 端口号   查看路由  1ip route show   全盘查找文件  1sudo find &#x2F; -name &quot;文件名&quot; 2&gt;&#x2F;dev&#x2F;null">
+<meta property="og:description" content="命令系统 查看磁盘容量  1df -h &#x2F;   重启  1sudo reboot   查看 APP 等待时间  1gsettings get org.gnome.mutter check-alive-timeout   设置 APP 等待时间  1gsettings set org.gnome.mutter check-alive-timeout 时长 # 单位为毫秒   强制关闭应用  12pg">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xten-no-brain.github.io/img/Avatar.jpg">
 <meta property="article:published_time" content="2025-06-09T17:29:19.000Z">
-<meta property="article:modified_time" content="2025-07-17T05:03:38.256Z">
+<meta property="article:modified_time" content="2025-08-17T06:44:29.769Z">
 <meta property="article:author" content="Xten">
 <meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://xten-no-brain.github.io/2025/06/10/Linux/",
   "image": "https://xten-no-brain.github.io/img/Avatar.jpg",
   "datePublished": "2025-06-09T17:29:19.000Z",
-  "dateModified": "2025-07-17T05:03:38.256Z",
+  "dateModified": "2025-08-17T06:44:29.769Z",
   "author": [
     {
       "@type": "Person",
@@ -172,12 +172,33 @@
   }
 </style>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Xten's Blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/false/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2025/05/20/C++/"><i class="fa-fw fas fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/2025/06/10/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/2025/06/10/Git/"><i class="fa-fw fab fa-git"></i><span> Git</span></a></li><li><a class="site-page child" href="/2025/06/10/CMake/"><i class="fa-fw fas fa-tools"></i><span> CMake</span></a></li><li><a class="site-page child" href="/2025/04/27/MySQL/"><i class="fa-fw fas fa-database"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/2025/04/27/Redis/"><i class="fa-fw fas fa-bolt"></i><span> Redis</span></a></li><li><a class="site-page child" href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="fa-fw fas fa-desktop"></i><span> 操作系统</span></a></li><li><a class="site-page child" href="/2025/04/27/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-network-wired"></i><span> 网络</span></a></li><li><a class="site-page child" href="/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"><i class="fa-fw fas fa-project-diagram"></i><span> 系统设计</span></a></li><li><a class="site-page child" href="/2025/06/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-palette"></i><span> 设计模式</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2025/05/20/C++/"><i class="fa-fw fas fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/2025/06/10/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/2025/06/10/Git/"><i class="fa-fw fab fa-git"></i><span> Git</span></a></li><li><a class="site-page child" href="/2025/06/10/CMake/"><i class="fa-fw fas fa-tools"></i><span> CMake</span></a></li><li><a class="site-page child" href="/2025/04/27/MySQL/"><i class="fa-fw fas fa-database"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/2025/04/27/Redis/"><i class="fa-fw fas fa-bolt"></i><span> Redis</span></a></li><li><a class="site-page child" href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="fa-fw fas fa-desktop"></i><span> 操作系统</span></a></li><li><a class="site-page child" href="/2025/04/27/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-network-wired"></i><span> 网络</span></a></li><li><a class="site-page child" href="/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"><i class="fa-fw fas fa-project-diagram"></i><span> 系统设计</span></a></li><li><a class="site-page child" href="/2025/06/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-palette"></i><span> 设计模式</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-07-17T05:03:38.256Z" title="更新于 2025-07-17 13:03:38">2025-07-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">273</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><ul>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/false/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2025/05/20/C++/"><i class="fa-fw fas fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/2025/06/10/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/2025/06/10/Git/"><i class="fa-fw fab fa-git"></i><span> Git</span></a></li><li><a class="site-page child" href="/2025/06/10/CMake/"><i class="fa-fw fas fa-tools"></i><span> CMake</span></a></li><li><a class="site-page child" href="/2025/04/27/MySQL/"><i class="fa-fw fas fa-database"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/2025/04/27/Redis/"><i class="fa-fw fas fa-bolt"></i><span> Redis</span></a></li><li><a class="site-page child" href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="fa-fw fas fa-desktop"></i><span> 操作系统</span></a></li><li><a class="site-page child" href="/2025/04/27/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-network-wired"></i><span> 网络</span></a></li><li><a class="site-page child" href="/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"><i class="fa-fw fas fa-project-diagram"></i><span> 系统设计</span></a></li><li><a class="site-page child" href="/2025/06/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-palette"></i><span> 设计模式</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Mars.jpg" alt="Logo"><span class="site-name">Xten's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><span class="site-page group"><span> 文章分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2025/05/20/C++/"><i class="fa-fw fas fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/2025/06/10/Linux/"><i class="fa-fw fab fa-linux"></i><span> Linux</span></a></li><li><a class="site-page child" href="/2025/06/10/Git/"><i class="fa-fw fab fa-git"></i><span> Git</span></a></li><li><a class="site-page child" href="/2025/06/10/CMake/"><i class="fa-fw fas fa-tools"></i><span> CMake</span></a></li><li><a class="site-page child" href="/2025/04/27/MySQL/"><i class="fa-fw fas fa-database"></i><span> MySQL</span></a></li><li><a class="site-page child" href="/2025/04/27/Redis/"><i class="fa-fw fas fa-bolt"></i><span> Redis</span></a></li><li><a class="site-page child" href="/2025/04/27/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="fa-fw fas fa-desktop"></i><span> 操作系统</span></a></li><li><a class="site-page child" href="/2025/04/27/%E7%BD%91%E7%BB%9C/"><i class="fa-fw fas fa-network-wired"></i><span> 网络</span></a></li><li><a class="site-page child" href="/2025/05/19/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"><i class="fa-fw fas fa-project-diagram"></i><span> 系统设计</span></a></li><li><a class="site-page child" href="/2025/06/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-fw fas fa-palette"></i><span> 设计模式</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">更新于</span><time datetime="2025-08-17T06:44:29.769Z" title="更新于 2025-08-17 14:44:29">2025-08-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">997</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><ul>
 <li><strong>查看磁盘容量</strong></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h /</span><br></pre></td></tr></table></figure>
 
-<p>- </p>
+<ul>
+<li><strong>重启</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>查看 APP 等待时间</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings get org.gnome.mutter check-alive-timeout</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>设置 APP 等待时间</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.gnome.mutter check-alive-timeout 时长 # 单位为毫秒</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>强制关闭应用</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pgrep -a -f &lt;AppName&gt; # 查看进程</span><br><span class="line">kill -9 &lt;AppName 的进程 ID&gt; # -9 表示强制终止信号</span><br></pre></td></tr></table></figure>
+
+<p><code>kill</code> 或 <code>kill -15</code> 发送 <strong>SIGTERM</strong> 信号，它要求进程进行清理工作（保存数据）后再退出</p>
+<p><code>kill -9</code> 发送 <strong>SIGKILL</strong> 信号，强制立刻终止进程，无法被阻止或忽略，通常用于强制关闭无法正常终止的进程</p>
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
 <li><strong>查看 IP 地址</strong></li>
 </ul>
@@ -252,13 +273,98 @@
 
 
 
-<p>awk</p>
-<p>sed</p>
-<p>grep</p>
-<p>coredump</p>
-<p>netstat</p>
-<p>tcpdump</p>
-<p>ipcs</p>
-<p>ipcrm</p>
+<h2 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h2><ul>
+<li><strong>开启</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /绝对路径</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>删除本行</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + K</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>插入</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shift + Insert</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>保存</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + O</span><br><span class="line"></span><br><span class="line">Enter</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>退出</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + X</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>确定更新</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /绝对路径</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h3><ul>
+<li><strong>用途</strong>: <code>awk</code> 是一个强大的文本处理工具，通常用于文件的列操作、模式匹配和数据提取。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>awk &#39;&#123;print $1&#125;&#39; file.txt</code><br>打印文件中每行的第一个字段。</li>
+<li><code>awk &#39;$3 &gt; 50 &#123;print $1, $3&#125;&#39; file.txt</code><br>打印第三列值大于50的第一列和第三列。</li>
+</ul>
+</li>
+</ul>
+<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h3><ul>
+<li><strong>用途</strong>: <code>sed</code> 是流编辑器，用于对文件内容进行查找、替换、插入、删除等操作。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>sed &#39;s/old/new/g&#39; file.txt</code><br>将文件中所有的 “old” 替换为 “new”。</li>
+<li><code>sed &#39;2d&#39; file.txt</code><br>删除文件的第二行。</li>
+</ul>
+</li>
+</ul>
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><ul>
+<li><strong>用途</strong>: <code>grep</code> 是用来搜索文件中的文本模式。可以用来匹配正则表达式的模式并输出匹配的行。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>grep &#39;pattern&#39; file.txt</code><br>查找文件中包含 “pattern” 的行。</li>
+<li><code>grep -r &#39;pattern&#39; /directory</code><br>在目录中递归查找包含 “pattern” 的文件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="coredump"><a href="#coredump" class="headerlink" title="coredump"></a>coredump</h3><ul>
+<li><strong>用途</strong>: <code>coredump</code> 是程序崩溃时产生的文件，包含了程序崩溃时的内存快照。它通常用于程序调试。</li>
+<li><strong>查看</strong>: 可以使用 <code>gdb</code> 来分析 coredump 文件，命令为<br><code>gdb /path/to/program corefile</code>。</li>
+<li><strong>生成</strong>: 通过设置 <code>ulimit -c unlimited</code> 可以开启 core dump 文件的生成。</li>
+</ul>
+<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><ul>
+<li><strong>用途</strong>: <code>netstat</code> 用于显示网络连接、路由表、接口统计等信息。它有很多有用的选项来诊断网络问题。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>netstat -tuln</code><br>显示所有监听中的 TCP 和 UDP 端口。</li>
+<li><code>netstat -i</code><br>查看网络接口的统计信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h3><ul>
+<li><strong>用途</strong>: <code>tcpdump</code> 是一个网络抓包工具，用于监控网络数据包，常用于网络故障排查和安全分析。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>tcpdump -i eth0</code><br>捕获并显示 eth0 接口的网络包。</li>
+<li><code>tcpdump -n -i eth0 port 80</code><br>捕获 HTTP 流量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ipcs"><a href="#ipcs" class="headerlink" title="ipcs"></a>ipcs</h3><ul>
+<li><strong>用途</strong>: <code>ipcs</code> 命令用于显示当前系统中共享内存、消息队列和信号量的状态信息。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>ipcs</code><br>显示所有系统级的 IPC（进程间通信）资源。</li>
+<li><code>ipcs -m</code><br>只显示共享内存的状态信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ipcrm"><a href="#ipcrm" class="headerlink" title="ipcrm"></a>ipcrm</h3><ul>
+<li><strong>用途</strong>: <code>ipcrm</code> 用于删除共享内存、消息队列和信号量。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>ipcrm -m shmid</code><br>删除指定 ID 的共享内存。</li>
+<li><code>ipcrm -q msgqid</code><br>删除指定 ID 的消息队列。</li>
+</ul>
+</li>
+</ul>
 <h1 id="开发中踩过的坑"><a href="#开发中踩过的坑" class="headerlink" title="开发中踩过的坑"></a>开发中踩过的坑</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p><code>sudo apt</code> 安装之前要先清理依赖关系树，有脏东西的话就会导致安装不成功，之前以为是网络问题，排查了好久才发现是依赖的问题</p>
-<h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io">Xten</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io/2025/06/10/Linux/">https://xten-no-brain.github.io/2025/06/10/Linux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://xten-no-brain.github.io" target="_blank">Xten's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/2025/06/10/Git/" title="Git"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">Git</div></div></div></a><a class="pagination-related no-desc" href="/2025/06/10/CMake/" title="CMake"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">CMake</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="toc-number">2.</span> <span class="toc-text">开发中踩过的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB"><span class="toc-number">3.</span> <span class="toc-text">GDB</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Xten</span></div><div class="footer_custom_text">当机会到来，我是否已做好迎接它的准备？</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io">Xten</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xten-no-brain.github.io/2025/06/10/Linux/">https://xten-no-brain.github.io/2025/06/10/Linux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://xten-no-brain.github.io" target="_blank">Xten's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/2025/06/10/Git/" title="Git"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">Git</div></div></div></a><a class="pagination-related no-desc" href="/2025/06/10/CMake/" title="CMake"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">CMake</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nano"><span class="toc-number">1.4.</span> <span class="toc-text">nano</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#awk"><span class="toc-number">1.4.1.</span> <span class="toc-text">awk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">1.4.2.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">1.4.3.</span> <span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#coredump"><span class="toc-number">1.4.4.</span> <span class="toc-text">coredump</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netstat"><span class="toc-number">1.4.5.</span> <span class="toc-text">netstat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tcpdump"><span class="toc-number">1.4.6.</span> <span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ipcs"><span class="toc-number">1.4.7.</span> <span class="toc-text">ipcs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ipcrm"><span class="toc-number">1.4.8.</span> <span class="toc-text">ipcrm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="toc-number">2.</span> <span class="toc-text">开发中踩过的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Xten</span></div><div class="footer_custom_text">当机会到来，我是否已做好迎接它的准备？</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
